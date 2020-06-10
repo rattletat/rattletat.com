@@ -4,7 +4,6 @@ from fabric.api import cd, env, local, run, sudo, settings, hide
 env.use_ssh_config = True
 CONFIG_PRODUCTION = "config.settings.production"
 
-REPO_URL = "https://github.com/rattletat/rattletat.com"
 ENV_VARS = [
     f"DJANGO_SETTINGS_MODULE={CONFIG_PRODUCTION}",
 ]
@@ -25,8 +24,8 @@ def deploy(domain):
 
 
 def _get_latest_source():
-    current_commit = local("git log -n 1 --format=%H", capture=True)
-    run(f"git reset --hard {current_commit}")
+    run("git fetch --all")
+    run(f"git reset --hard HEAD")
 
 
 def _update_virtualenv():
@@ -35,6 +34,7 @@ def _update_virtualenv():
 
 def _create_or_update_dotenv():
     run("set -a")
+    run("cat .env")
     run("source .env")
     run("set +a")
 
