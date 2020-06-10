@@ -23,33 +23,40 @@ function makeLissajous() {
         currentY = height / 2 + (height / 2) * Math.sin(b * phi);
 
         // Fade out and remove lines that are barely visible
-        svg.selectAll("line")
-            .each(function () {
-                this.bogus_opacity *= 0.993;
-            })
-            .attr("stroke-opacity", function () {
-                return this.bogus_opacity;
-            })
-            .filter(function () {
-                return this.bogus_opacity < 0.005;
-            })
-            .remove();
+        // svg.selectAll("line")
+        //     // .each(function () {
+        //     //     this.bogus_opacity *= 0.99;
+        //     // })
+        //     // .attr("stroke-opacity", function () {
+        //     //     return this.bogus_opacity;
+        //     // })
+        // .filter(function (d) {
+        //     return d.attr("opacity") < 0.7
+        // })
+        // .remove();
 
         // Add next step line
         line = svg.append("line")
-            .each(function () {
-                this.bogus_opacity = 1.0;
-            })
+            // .each(function () {
+            //     this.bogus_opacity = 1.0;
+            // })
             .attr("x1", previousX)
             .attr("y1", previousY)
             .attr("x2", currentX)
             .attr("y2", currentY)
             .attr("stroke-width", 30)
-            .attr("stroke", "red");
+            .attr("stroke-opacity", 1)
+            .attr("stroke", "white");
 
         line.transition()
-            .duration(30000)
+            .duration(300)
+            .attr("stroke", "red")
+            .transition()
+            .duration(25000)
+            .attr("stroke-opacity", 0.03)
+            .attr("stroke-width", 80)
             .attr("stroke", "blue")
+            .remove();
 
         // Exchange start & end point
         previousX = currentX;
@@ -57,7 +64,7 @@ function makeLissajous() {
 
     };
 
-    d3.interval(start_line, 30);
+    d3.interval(start_line, 40);
     // d3.timer(start_line, 800);
 }
 

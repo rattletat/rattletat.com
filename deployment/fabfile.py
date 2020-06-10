@@ -25,7 +25,7 @@ def deploy(domain):
 
 def _get_latest_source():
     run("git fetch --all")
-    run(f"git reset --hard HEAD")
+    run(f"git reset --hard FETCH_HEAD")
 
 
 def _update_virtualenv():
