@@ -36,9 +36,9 @@ function makeLissajous() {
             .duration(300)
             .attr("stroke", "red")
             .transition()
-            .duration(25000)
+            .duration(15000)
             .attr("stroke-opacity", 0.03)
-            .attr("stroke-width", 80)
+            .attr("stroke-width", 100)
             .attr("stroke", "blue")
             .remove();
 
