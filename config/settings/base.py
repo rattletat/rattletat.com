@@ -77,7 +77,7 @@ INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
 # MIGRATIONS
 # -------------------------------------------------------------------
 
-MIGRATION_MODULES = {"sites": "rattletat.contrib.sites.migrations"}
+# MIGRATION_MODULES = {"sites": "rattletat.contrib.sites.migrations"}
 
 # AUTHENTICATION
 # -------------------------------------------------------------------
