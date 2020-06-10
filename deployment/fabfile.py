@@ -34,7 +34,6 @@ def _update_virtualenv():
 
 def _create_or_update_dotenv():
     run("set -a")
-    run("cat .env")
     run("source .env")
     run("set +a")
 
