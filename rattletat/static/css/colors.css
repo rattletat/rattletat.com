@@ -18,6 +18,10 @@
 
 /* Links */
 
+[data-theme="dark"] .title a {
+    color: white !important;
+}
+
 a {
     color:#748aa6;
     text-decoration: none;

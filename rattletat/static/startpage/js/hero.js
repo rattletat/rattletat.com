@@ -1,15 +1,15 @@
 function makeLissajous() {
-    var width = window.innerWidth * .9;
-    var height = window.innerHeight * .9;
+    var width = window.innerWidth;
+    var height = window.innerHeight * .95;
     window.onresize = function () {
-        width = window.innerWidth * .9;
-        height = window.innerHeight *.9;
+        width = window.innerWidth;
+        height = window.innerHeight * .95;
     };
     var svg = d3.select("#hero");
     var a = 3.2,
         b = 5.9; // Lissajous frequencies
     var phi,
-        omega = (2 * Math.PI) / 30000; // 40 seconds per period
+        omega = (2 * Math.PI) / 6000;
 
     var currentX = width + width * .05,
         currentY = height / 2 + height * .05;
@@ -19,13 +19,13 @@ function makeLissajous() {
     var start_line = function (t) {
         // Calculate position
         phi = omega * t;
-        currentX = width / 2 + (width / 2) * Math.cos(a * phi) + width * .05;
-        currentY = height / 2 + (height / 2) * Math.sin(b * phi) + height * .05;
+        currentX = width / 2 + (width / 2) * Math.cos(a * phi);
+        currentY = height / 2 + (height / 2) * Math.sin(b * phi);
 
         // Fade out and remove lines that are barely visible
         svg.selectAll("line")
             .each(function () {
-                this.bogus_opacity *= 0.97 + 0.03 * Math.random();
+                this.bogus_opacity *= 0.995;
             })
             .attr("stroke-opacity", function () {
                 return this.bogus_opacity;
@@ -44,32 +44,21 @@ function makeLissajous() {
             .attr("y1", previousY)
             .attr("x2", currentX)
             .attr("y2", currentY)
-            .attr("stroke-width", 10)
-            .attr("stroke", "#ff410d");
+            .attr("stroke-width", 30)
+            .attr("stroke", "red");
 
         line.transition()
-            .duration(2000)
-            .attr("stroke", "#18cae6")
-            .transition()
-            .duration(2000)
-            .attr("stroke", "green");
-
-        // line.transition()
-        //     .duration(4000)
-        //     .attr("stroke-width", 0.1 * Math.random() * (currentX + currentY));
+            .duration(30000)
+            .attr("stroke", "blue")
 
         // Exchange start & end point
         previousX = currentX;
         previousY = currentY;
 
-        if (t > 5000e3) {
-            timer.stop();
-        } // after 120 seconds
     };
 
-    d3.timer(start_line);
-    d3.timer(start_line, 1500)
-    d3.timer(start_line, 3000)
+    d3.interval(start_line, 50);
+    // d3.timer(start_line, 800);
 }
 
 function bounceArrow() {

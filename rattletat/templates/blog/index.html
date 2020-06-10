@@ -14,9 +14,9 @@
             {{ tag.name }}
         </a>&nbsp;
         {% endfor %}
-    <p>{{ post.text | truncatewords:50 }}</p>
+    <p>{{ post.text | truncatewords:20 }}</p>
     </small>
-    {% endfor %}
     <hr>
+    {% endfor %}
 </div>
 {% endblock %}
