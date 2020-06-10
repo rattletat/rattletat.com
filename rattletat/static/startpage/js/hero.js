@@ -1,9 +1,9 @@
 function makeLissajous() {
     var width = window.innerWidth;
-    var height = window.innerHeight * .95;
+    var height = window.innerHeight * .97;
     window.onresize = function () {
         width = window.innerWidth;
-        height = window.innerHeight * .95;
+        height = window.innerHeight * .97;
     };
     var svg = d3.select("#hero");
     var a = 3.2,
@@ -25,7 +25,7 @@ function makeLissajous() {
         // Fade out and remove lines that are barely visible
         svg.selectAll("line")
             .each(function () {
-                this.bogus_opacity *= 0.995;
+                this.bogus_opacity *= 0.993;
             })
             .attr("stroke-opacity", function () {
                 return this.bogus_opacity;
@@ -57,7 +57,7 @@ function makeLissajous() {
 
     };
 
-    d3.interval(start_line, 50);
+    d3.interval(start_line, 30);
     // d3.timer(start_line, 800);
 }
 
