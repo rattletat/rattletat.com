@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block style %}
+<link rel="stylesheet" type="text/css" href="{% static "blog/css/colors.css" %}">
+<link rel="stylesheet" type="text/css" href="{% static "blog/css/prism.css" %}">
+{% endblock %}
+
+{% block script %}
+<script src="{% static "blog/js/clipboard.min.js" %}"></script>
+<script src="{% static "blog/js/prism.js" %}"></script>
+{% endblock %}

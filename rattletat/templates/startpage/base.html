@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block style %}
+<link rel="stylesheet" type="text/css" href="{% static "css/bootstrap.min.css" %}">
+<link rel="stylesheet" type="text/css" href="{% static "startpage/css/base.css" %}">
+{% endblock %}
+
+{% block script %}
+<script src="{% static "startpage/js/d3.js" %}"></script>
+<script src="{% static "startpage/js/hero.js" %}"></script>
+<script>document.body.setAttribute("data-theme", "dark")</script>
+<script>localStorage.setItem("darkSwitch", "dark"))</script>
+{% endblock %}

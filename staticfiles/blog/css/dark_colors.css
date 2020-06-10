@@ -1,0 +1,7 @@
+[data-theme="dark"] .tag {
+    color: #f79d1e !important;
+}
+
+[data-theme="dark"] hr {
+    background:#333;
+}

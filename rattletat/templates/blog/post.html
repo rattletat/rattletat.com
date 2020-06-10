@@ -1,0 +1,16 @@
+{% extends "blog/base.html" %}
+{% load markdownx %}
+
+{% block page_content %}
+<div class="col-md-8 offset-md-2">
+    {% include "blog/title.html" %}
+
+    <p>{{ post.text | show_markdown }}</p>
+
+    {% include "blog/comment_form.html" %}
+
+    {% include "blog/comments.html" %}
+
+    {% include "blog/footer.html" %}
+</div>
+{% endblock %}

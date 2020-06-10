@@ -1,0 +1,11 @@
+[data-theme="dark"] .tag {
+    color: #F9EE98 !important;
+}
+
+[data-theme="dark"] .author {
+    color: #F9EE98 !important;
+}
+
+[data-theme="dark"] hr {
+    background:#333;
+}

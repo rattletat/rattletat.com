@@ -1,0 +1,37 @@
+[data-theme="dark"] {
+    background-color: #111 !important;
+    color: #748aa6;
+}
+
+[data-theme="dark"] .bg-light {
+    background-color: #333 !important;
+    color: #f7c530
+}
+
+[data-theme="dark"] .bg-white {
+    background-color: #000 !important;
+}
+
+[data-theme="dark"] .bg-black {
+    background-color: #d0dfe6 !important;
+}
+
+/* Links */
+
+[data-theme="dark"] a {
+    color: #d0dfe6 !important;
+}
+
+
+/* Navbar */
+[data-theme="dark"] .nav-link {
+  color: #d0dfe6 !important;
+}
+
+[data-theme="dark"] .nav-item.active .nav-link {
+  color: #f7c530 !important;
+}
+
+[data-theme="dark"] .navbar-brand {
+  color: #ff410d !important;
+}
