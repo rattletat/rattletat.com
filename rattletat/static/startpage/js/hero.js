@@ -22,24 +22,8 @@ function makeLissajous() {
         currentX = width / 2 + (width / 2) * Math.cos(a * phi);
         currentY = height / 2 + (height / 2) * Math.sin(b * phi);
 
-        // Fade out and remove lines that are barely visible
-        // svg.selectAll("line")
-        //     // .each(function () {
-        //     //     this.bogus_opacity *= 0.99;
-        //     // })
-        //     // .attr("stroke-opacity", function () {
-        //     //     return this.bogus_opacity;
-        //     // })
-        // .filter(function (d) {
-        //     return d.attr("opacity") < 0.7
-        // })
-        // .remove();
-
         // Add next step line
         line = svg.append("line")
-            // .each(function () {
-            //     this.bogus_opacity = 1.0;
-            // })
             .attr("x1", previousX)
             .attr("y1", previousY)
             .attr("x2", currentX)
@@ -65,7 +49,6 @@ function makeLissajous() {
     };
 
     d3.interval(start_line, 40);
-    // d3.timer(start_line, 800);
 }
 
 function bounceArrow() {
