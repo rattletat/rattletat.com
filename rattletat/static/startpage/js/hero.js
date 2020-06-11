@@ -1,9 +1,9 @@
 function makeLissajous() {
     var width = window.innerWidth;
-    var height = window.innerHeight * .97;
+    var height = window.innerHeight * .975;
     window.onresize = function () {
         width = window.innerWidth;
-        height = window.innerHeight * .97;
+        height = window.innerHeight * .975;
     };
     var svg = d3.select("#hero");
     var a = 3.2,
@@ -28,7 +28,7 @@ function makeLissajous() {
             .attr("y1", previousY)
             .attr("x2", currentX)
             .attr("y2", currentY)
-            .attr("stroke-width", 30)
+            .attr("stroke-width", 20)
             .attr("stroke-opacity", 1)
             .attr("stroke", "white");
 
@@ -36,7 +36,7 @@ function makeLissajous() {
             .duration(300)
             .attr("stroke", "red")
             .transition()
-            .duration(15000)
+            .duration(12000)
             .attr("stroke-opacity", 0.03)
             .attr("stroke-width", 100)
             .attr("stroke", "blue")
