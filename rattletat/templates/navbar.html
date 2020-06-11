@@ -1,7 +1,7 @@
 {% load active %}
 
-<nav class="navbar navbar-expand-md navbar-light">
-    <div class="container">
+<div class="container">
+    <nav class="navbar navbar-expand-md navbar-light">
 
         {% if request.path != '/' %}
         <nav class="navbar navbar-default">
@@ -9,7 +9,6 @@
                 <a class="navbar-brand" id="brand" href="{% url 'startpage' %}">Rattle:tat</a>
             </div>
         </nav>
-        {% endif %}
 
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
             data-target="#navbar-navigation" aria-controls="navbar-navigation" aria-expanded="false"
@@ -17,25 +16,16 @@
             <span class="navbar-toggler-icon"></span>
         </button>
 
-        {% if request.path != '/' %}
         <div class="collapse navbar-collapse" id="navbar-navigation">
-            <ul class="nav navbar-nav">
-                <li class="nav-item {% active request 'startpage' %}">
-                    <a class="nav-link" href="{% url 'startpage' %}" class="">Home</a>
-                </li>
-                <li class="nav-item {% active request 'projects:index' %}">
-                    <a class="nav-link" href="{% url 'projects:index' %}">Projects</a>
-                </li>
-                <li class="nav-item {% active request 'blog:index' %}">
-                    <a class="nav-link" href="{% url 'blog:index' %}">Blog</a>
-                </li>
-                <li class="nav-item">
-                    <label for="darkSwitch" class="nav-link" style="position:absolute">Light</label>
-                    <input type="checkbox" id="darkSwitch" style="display:none" />
-                </li>
-                {% endif %}
-            </ul>
+            <div class="navbar-nav">
+                <a class="nav-item nav-link {% active request 'projects:index' %}"
+                    href="{% url 'projects:index' %}">Projects</a>
+                <a class="nav-item nav-link {% active request 'blog:index' %}" href="{% url 'blog:index' %}">Blog</a>
+                <label for="darkSwitch" class="nav-item nav-link">Light</label>
+                <input type="checkbox" id="darkSwitch" style="display:none" />
+            </div>
         </div>
+        {% endif %}
 
-    </div>
-</nav>
+    </nav>
+</div>
