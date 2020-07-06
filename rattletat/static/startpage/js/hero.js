@@ -112,7 +112,7 @@ function makeLorenz() {
         data = [];
 
     function draw(x, y, z) {
-        data.push([(width / 2 + 40 * x), (3/2 * height + 15 * -z)]);
+        data.push([(width / 2 + 30 * x), (3/2 * height + 15 * -z)]);
         track.attr("d", line(data)).attr("stroke", "url(#line-gradient)");
     }
 
