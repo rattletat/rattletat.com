@@ -241,9 +241,25 @@ version = "1.0.1"
 Django = ">=1.8"
 
 [[package]]
-category = "main"
+category = "dev"
 description = "High level SSH command execution"
 name = "fabric"
+optional = false
+python-versions = "*"
+version = "2.5.0"
+
+[package.dependencies]
+invoke = ">=1.3,<2.0"
+paramiko = ">=2.4"
+
+[package.extras]
+pytest = ["mock (>=2.0.0,<3.0)", "pytest (>=3.2.5,<4.0)"]
+testing = ["mock (>=2.0.0,<3.0)"]
+
+[[package]]
+category = "main"
+description = "High level SSH command execution"
+name = "fabric2"
 optional = false
 python-versions = "*"
 version = "2.5.0"
@@ -619,7 +635,7 @@ python-versions = "*"
 version = "0.5.1"
 
 [metadata]
-content-hash = "48abdc2485fc3831361a7b7b216c3cbd83f43f3919859ed614c0b186ca6da9a6"
+content-hash = "05e87c5cf23cad9f4f2c5fd1e74a186b06e660151be04be12a30db0ef04d629e"
 python-versions = "^3.8"
 
 [metadata.files]
@@ -778,6 +794,10 @@ django-next-prev = [
 fabric = [
     {file = "fabric-2.5.0-py2.py3-none-any.whl", hash = "sha256:160331934ea60036604928e792fa8e9f813266b098ef5562aa82b88527740389"},
     {file = "fabric-2.5.0.tar.gz", hash = "sha256:24842d7d51556adcabd885ac3cf5e1df73fc622a1708bf3667bf5927576cdfa6"},
+]
+fabric2 = [
+    {file = "fabric2-2.5.0-py2.py3-none-any.whl", hash = "sha256:8838d9641fd4e95bfc2568aa16fc683a600de860ac52a1dc9675a4db3c6cef7c"},
+    {file = "fabric2-2.5.0.tar.gz", hash = "sha256:29edd7848420df589a49743394a0ae6874ccb6a9fe6413c0076d42cc290dcad6"},
 ]
 flake8 = [
     {file = "flake8-3.8.2-py2.py3-none-any.whl", hash = "sha256:ccaa799ef9893cebe69fdfefed76865aeaefbb94cb8545617b2298786a4de9a5"},
