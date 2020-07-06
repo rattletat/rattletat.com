@@ -15,9 +15,7 @@ POETRY = " ".join(ENV_VARS) + " ~/.local/bin/poetry "
 def deploy(c):
     c.run(f"mkdir -p {site_dir}")
     with c.cd(site_dir):
-        c.run("git fetch")
-        current_commit = c.run("git log -n 1 --format=%H")
-        c.run(f"git reset --hard {current_commit.stdout}")
+        c.run("git pull")
         c.run(POETRY + " install")
         c.run("set -a")
         c.run("source .env")
