@@ -43,6 +43,7 @@ svg {
     font-size: 11vw;
     font-family: Monoton;
     text-decoration: none;
+    color: white;
 }
 
 .bottom {
@@ -55,4 +56,5 @@ svg {
 
 .background {
     z-index: -1;
+    color: black;
 }
