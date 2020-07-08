@@ -1,6 +1,6 @@
 <html>
 
-<body>
+<body class="d-flex flex-column min-vh-100">
     <header>
         {% include "header.html" %}
         {% block style %}{% endblock %}
@@ -14,7 +14,7 @@
         {% block page_content %}{% endblock %}
     </div>
     <br>
-    <footer>
+    <footer class="mt-auto">
         {% include "footer.html" %}
         {% include "scripts.html" %}
         {% block script %}{% endblock %}
