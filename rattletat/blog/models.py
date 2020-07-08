@@ -1,6 +1,5 @@
 from django.db import models
 from django.shortcuts import reverse
-from markdownx.models import MarkdownxField
 from model_utils.models import TimeStampedModel
 from next_prev import next_in_order, prev_in_order
 
@@ -17,8 +16,10 @@ class Tag(models.Model):
 
 class Post(TimeStampedModel):
     tags = models.ManyToManyField(Tag, related_name="posts")
+
     title = models.CharField(max_length=255)
-    text = MarkdownxField()
+    description = models.TextField(null=True, blank=True)
+    text = models.TextField()
 
     def next(self):
         return next_in_order(self)

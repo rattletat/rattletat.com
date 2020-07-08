@@ -1,13 +1,14 @@
 {% extends "base.html" %}
 
 {% block page_content %}
-<div class="col-md-8 offset-md-2">
-    <h1>projects</h1>
+<div class="col-lg-8 col-md-10 mx-auto">
+  <h1>{{project.title}}</h1>
+    <small>{{project.description}}</small>
     <hr>
     <br>
     <div class="card-deck">
-        {% for project in projects %}
-        {% include "projects/card.html" %}
+        {% for component in project.components.all %}
+        {% include "projects/component.html" %}
         {% if forloop.counter|divisibleby:"2"  %}
     </div>
     <div class="card-deck">

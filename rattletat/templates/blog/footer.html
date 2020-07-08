@@ -1,17 +1,19 @@
-<div class="row bottom-nav" style="text-align:center">
-  <div class="col-4">
-    {% if post.previous %}
-    <a href="{{ post.previous.get_absolute_url }}" title="{{ post.previous.title }}" class="previous-link">prev</a>
-    {% endif %}
-  </div>
+<div class="container">
+  <div class="row">
+    <div class="col-4 text-center">
+      {% if post.previous %}
+      <a href="{{ post.previous.get_absolute_url }}" title="{{ post.previous.title }}" class="previous-link">prev</a>
+      {% endif %}
+    </div>
 
-  <div class="col-4">
-    <a href="#">top</a>
-  </div>
+    <div title="top of page" class="col-4 text-center">
+      <a href="#">top</a>
+    </div>
 
-  <div class="col-4">
-    {% if post.next %}
-    <a href="{{ post.next.get_absolute_url }}" title="{{ post.next.title }}" class="next-link">next</a>
-    {% endif %}
+    <div class="col-4 text-center">
+      {% if post.next %}
+      <a href="{{ post.next.get_absolute_url }}" title="{{ post.next.title }}" class="next-link">next</a>
+      {% endif %}
+    </div>
   </div>
 </div>

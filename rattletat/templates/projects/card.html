@@ -1,18 +1,18 @@
 {% load humanize %}
 
 <div class="card mb-4 bg-light">
-  <div class="card-header">{{ project.title }}</div>
-  <img class="card-img-top" src="{{ project.image.url }}">
-  <div class="card-body d-flex flex-column">
-    <p class="card-text">{{ project.description }}</p>
-    <button type="button" class="mt-auto btn btn-outline-secondary">Read More</button>
-  </div>
-  <div class="card-footer">
-    <small class="text-muted">Created {{ project.created | naturaltime }}</small>
-  </div>
-  {% if project.updated %}
-  <div class="card-footer">
-    <small class="text-muted">Last updated {{ project.updated | naturaltime }}</small>
-  </div>
-  {% endif %}
+    <div class="card-header">{{ project.title }}</div>
+    <img class="card-img-top" src="{{ project.image.url }}">
+    <div class="card-body d-flex flex-column">
+        <p class="card-text">{{ project.description }}</p>
+        <a href="{% url 'projects:detail' project.pk %}"><button type="button" class="mt-auto btn btn-outline-secondary">Read More</button></a>
+    </div>
+    <div class="card-footer">
+        <small class="text-muted">Created {{ project.created | naturaltime }}</small>
+    </div>
+    {% if project.updated %}
+    <div class="card-footer">
+        <small class="text-muted">Last updated {{ project.updated | naturaltime }}</small>
+    </div>
+    {% endif %}
 </div>

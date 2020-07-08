@@ -1,7 +1,7 @@
 from django.conf import settings
 from django.contrib import admin
+from django.contrib.flatpages import views as flat_views
 from django.urls import include, path
-from markdownx import urls as markdownx_urls
 
 from rattletat.blog import urls as blog_urls
 from rattletat.projects import urls as projects_urls
@@ -12,7 +12,8 @@ urlpatterns = [
     path("projects/", include(projects_urls, namespace="projects")),
     path("blog/", include(blog_urls, namespace="blog")),
     path("admin/", admin.site.urls),
-    path("markdownx/", include(markdownx_urls)),
+    path("about/", flat_views.flatpage, {"url": "/about/"}, name="about"),
+    path("privacy/", flat_views.flatpage, {"url": "/privacy/"}, name="privacy"),
 ]
 
 if settings.DEBUG:
@@ -23,6 +24,7 @@ if settings.DEBUG:
     ]
 
     from django.conf.urls.static import static
+
     urlpatterns = urlpatterns + static(
         settings.MEDIA_URL, document_root=settings.MEDIA_ROOT
     )
