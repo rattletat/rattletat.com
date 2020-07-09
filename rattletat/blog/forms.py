@@ -9,7 +9,7 @@ class CommentForm(forms.ModelForm):
         fields = ["author", "text"]
         widgets = {
             "author": forms.TextInput(
-                attrs={"class": "form-control", "placeholder": "Your nickname"}
+                attrs={"class": "form-control", "placeholder": "Your nickname."}
             ),
             "text": forms.Textarea(
                 attrs={
