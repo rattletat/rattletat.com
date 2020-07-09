@@ -269,7 +269,5 @@ MARKDOWNIFY_WHITELIST_ATTRS = [
 MARKDOWNIFY_MARKDOWN_EXTENSIONS = [
     PrismCodeExtension(),
     ChecklistExtension(),
-    "markdown.extensions.fenced_code",
-    "markdown.extensions.extra",
 ]
 MARKDOWNIFY_STRIP = False
