@@ -1,3 +1,5 @@
+{% load markdownify %}
+
 <h1>{{ post.title }}</h1>
 <small>
   {{ post.created.date }} &nbsp;
@@ -9,6 +11,6 @@
   {% endfor %}
   <br>
   {% if post.description %}
-    {{ post.description }}
+    {{ post.description | markdownify }}
   {% endif %}
 </small>

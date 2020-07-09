@@ -79,3 +79,9 @@ a {
 [data-theme="dark"] hr {
     background:#333;
 }
+
+[data-theme="dark"] blockquote {
+  color: #d0dfe6 !important;
+  background:#333 !important;
+  border-left:8px solid #ff5500 !important;
+}

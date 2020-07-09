@@ -1,11 +1,11 @@
 {% extends "blog/base.html" %}
-{% load markdownx %}
+{% load markdownify %}
 
 {% block page_content %}
 <div class="col-lg-8 col-md-10 mx-auto">
     {% include "blog/title.html" %}
     <hr>
-    <p>{{ post.text | show_markdown }}</p>
+    <p>{{ post.text | markdownify }}</p>
 
     {% include "blog/comment_form.html" %}
     {% include "blog/comments.html" %}

@@ -55,13 +55,13 @@ DJANGO_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "django.contrib.humanize",  # Handy template tags
-    "django.contrib.flatpages", # Contact
+    "django.contrib.flatpages",  # Contact
     "django.contrib.admin",
     "django.forms",
 ]
 
 THIRD_PARTY_APPS = [
-    "markdownx",
+    "markdownify",
 ]
 
 LOCAL_APPS = [
@@ -163,7 +163,7 @@ TEMPLATES = [
     }
 ]
 
-FORM_RENDERER = 'django.forms.renderers.TemplatesSetting'
+FORM_RENDERER = "django.forms.renderers.TemplatesSetting"
 
 # FIXTURES
 # -------------------------------------------------------------------
@@ -220,23 +220,33 @@ LOGGING = {
 
 # MARKDOWNIFY
 # -------------------------------------------------------------------
+from rattletat.blog.utils.markdown_prism import PrismCodeExtension
+from markdown_checklist.extension import ChecklistExtension
 
-MARKDOWNX_MARKDOWNIFY_FUNCTION = "rattletat.blog.utils.secure_markdown.markdownify"
+# MARKDOWNX_MARKDOWNIFY_FUNCTION = "rattletat.blog.utils.secure_markdown.markdownify"
 MARKDOWNIFY_WHITELIST_TAGS = [
+    "h2",
+    "h3",
+    "h4",
+    "h5",
+    "h6",
     "a",
     "abbr",
     "acronym",
     "b",
-    "blockquote",
     "em",
     "i",
     "li",
     "ol",
     "p",
+    "blockquote",
     "strong",
     "ul",
     "pre",
     "code",
+    "input",
+    "br",
+    "*",
 ]
 MARKDOWNIFY_WHITELIST_PROTOCOLS = [
     "http",
@@ -252,4 +262,14 @@ MARKDOWNIFY_WHITELIST_ATTRS = [
     "src",
     "alt",
     "class",
+    "type",
+    "disabled",
+    "checked",
 ]
+MARKDOWNIFY_MARKDOWN_EXTENSIONS = [
+    PrismCodeExtension(),
+    ChecklistExtension(),
+    "markdown.extensions.fenced_code",
+    "markdown.extensions.extra",
+]
+MARKDOWNIFY_STRIP = False

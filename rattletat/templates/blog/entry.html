@@ -1,3 +1,5 @@
+{% load markdownify %}
+
 <h3><a href="{% url 'blog:post' post.pk%}">{{ post.title }}</a></h3>
 <small>
   {{ post.created.date }} &nbsp;
@@ -8,7 +10,7 @@
   </a>&nbsp;
   {% endfor %}
   {% if post.description %}
-  <p>{{ post.description | truncatewords:20 }}</p>
+  <p>{{ post.description | truncatewords:20 | markdownify }}</p>
   {% else %}
   <p>{{ post.text | truncatewords:20 }}</p>
   {% endif %}

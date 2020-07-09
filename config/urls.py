@@ -12,7 +12,7 @@ urlpatterns = [
     path("projects/", include(projects_urls, namespace="projects")),
     path("blog/", include(blog_urls, namespace="blog")),
     path("admin/", admin.site.urls),
-    path("about/", flat_views.flatpage, {"url": "/about/"}, name="about"),
+    path("imprint/", flat_views.flatpage, {"url": "/imprint/"}, name="imprint"),
     path("privacy/", flat_views.flatpage, {"url": "/privacy/"}, name="privacy"),
 ]
 
