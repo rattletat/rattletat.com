@@ -247,6 +247,7 @@ MARKDOWNIFY_WHITELIST_TAGS = [
     "input",
     "br",
     "div",
+    "small",
 ]
 MARKDOWNIFY_WHITELIST_PROTOCOLS = [
     "http",
