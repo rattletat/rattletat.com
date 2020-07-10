@@ -289,6 +289,6 @@ COMPRESS_FILTERS = {
         "compressor.filters.css_default.CssAbsoluteFilter",
         "compressor.filters.cssmin.CSSMinFilter",
     ],
-    "js": ["compressor.filers.jsmin.JSMinFilter"],
+    "js": ["compressor.filters.jsmin.JSMinFilter"],
 }
 HTML_MINIFY = True

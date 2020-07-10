@@ -1,5 +1,5 @@
 {% load humanize %}
-{% load markdownx %}
+{% load markdownify %}
 
 <div class="card mb-4 bg-light">
     {% if component.title %}
@@ -7,7 +7,7 @@
     {% endif %}
     <div class="card-body d-flex flex-column">
     {% if component.description %}
-        <p class="card-text">{{ component.description | show_markdown }}</p>
+        <p class="card-text">{{ component.description | markdownify }}</p>
     {% endif %}
     {% if component.post %}
         <button type="button" class="mt-auto btn btn-outline-secondary">
