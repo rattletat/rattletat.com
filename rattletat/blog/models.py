@@ -18,7 +18,7 @@ class Post(TimeStampedModel):
     tags = models.ManyToManyField(Tag, related_name="posts")
 
     title = models.CharField(max_length=255)
-    description = models.TextField(null=True, blank=True)
+    description = models.TextField()
     text = models.TextField()
 
     def next(self):

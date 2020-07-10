@@ -3,12 +3,15 @@
 
 <!-- Meta Information -->
 <meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex" />
 <meta name="author" content="Michael Brauweiler" />
+
 {% if post %}
-
-<meta property="article:published_time"content="{{post.modified | date:"Y-m-d" }}" />
-
+<meta property="article:published_time" content="{{post.modified | date:"Y-m-d" }}" />
+<meta name="description" content="{{ post.description }}"/>
+{% else %}
+<meta name="description" content="Rattle:tat Blog & Projects"/>
 {% endif %}
 
 

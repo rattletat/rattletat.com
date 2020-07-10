@@ -2,10 +2,8 @@
 
 {% block page_content %}
 <div class="col-lg-8 col-md-10 mx-auto">
-    <!-- <h1>posts</h1> -->
-    <!-- <hr> -->
     {% for post in object_list %}
-        {% include "blog/header.html" %}
+        {% include "blog/title.html" %}
         <hr>
     {% endfor %}
 </div>
