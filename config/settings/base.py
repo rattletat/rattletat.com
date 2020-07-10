@@ -282,6 +282,7 @@ MARKDOWNIFY_STRIP = False
 # COMPRESSOR
 # -------------------------------------------------------------------
 COMPRESS_ENABLED = True
+COMPRESS_OFFLINE = True
 COMPRESS_CSS_HASHING_METHOD = "content"
 COMPRESS_FILTERS = {
     "css": [

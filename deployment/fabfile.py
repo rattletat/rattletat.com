@@ -21,6 +21,7 @@ def deploy(c):
         c.run("source .env")
         c.run("set +a")
         c.run(POETRY + "run python3.8 manage.py collectstatic --noinput")
+        c.run(POETRY + "run python3.8 manage.py compress")
         c.run(POETRY + "run python3.8 manage.py makemigrations")
         c.run(POETRY + "run python3.8 manage.py migrate --noinput")
     c.sudo("systemctl restart gunicorn.service")
