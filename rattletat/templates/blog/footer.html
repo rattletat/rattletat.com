@@ -1,16 +1,16 @@
 <div class="container">
   <div class="row">
-    <div class="col-4 text-center">
+    <div class="col col-4 text-center">
       {% if post.previous %}
       <a href="{{ post.previous.get_absolute_url }}" title="{{ post.previous.title }}" class="previous-link">prev</a>
       {% endif %}
     </div>
 
-    <div title="top of page" class="col-4 text-center">
+    <div class="col col-4 text-center" title="top of page">
       <a href="#">top</a>
     </div>
 
-    <div class="col-4 text-center">
+    <div class="col col-4 text-center">
       {% if post.next %}
       <a href="{{ post.next.get_absolute_url }}" title="{{ post.next.title }}" class="next-link">next</a>
       {% endif %}

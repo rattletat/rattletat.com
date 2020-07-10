@@ -1,0 +1,19 @@
+{% load markdownify %}
+
+<a href="{% url 'blog:post' post.pk %}">
+    <h1>{{ post.title }}</h1>
+</a>
+<small>
+    {{ post.created.date }} &nbsp;
+    {% if post.project %}
+    project:&nbsp; {{ post.project }}
+    {% endif %}
+    {% for tag in post.tags.all %}
+    <a class="tag" href="{% url 'blog:tag' tag.name %}">{{ tag.name }}</a>&nbsp;
+    {% endfor %}
+    {% if post.description %}
+    {{ post.description | truncatewords:20 | markdownify }}
+    {% else %}
+    {{ post.text | truncatewords:20 }}
+    {% endif %}
+</small>

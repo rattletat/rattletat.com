@@ -29,8 +29,14 @@ a {
 }
 
 [data-theme="dark"] a {
-    color: #748aa6 !important;
+    color: #ff5500 !important;
 }
+
+[data-theme="dark"] .footer a {
+    color:#748aa6 !important;
+    text-decoration: none;
+}
+
 
 /* Header */
 [data-theme="dark"] h1, 
