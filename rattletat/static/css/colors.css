@@ -19,21 +19,13 @@
 
 /* Links */
 
-[data-theme="dark"] .title a {
-    color: white !important;
-}
-
-a {
+a:link, a:visited, a:hover, a:active {
     color:#748aa6;
     text-decoration: none;
 }
 
 [data-theme="dark"] a {
-    color: #ff5500 !important;
-}
-
-[data-theme="dark"] .footer a {
-    color:#748aa6 !important;
+    color: #748aa6 !important;
 }
 
 
@@ -46,6 +38,9 @@ a {
     color: white !important;
 }
 
+ h1 {
+    color: black;
+ }
 
 /* Navbar */
 [data-theme="dark"] .nav-link {
@@ -79,6 +74,17 @@ a {
     color: #F9EE98  !important;
 }
 
+/* Input */
+
+[data-theme="dark"] input[type="text"]{
+    background-color: #111 !important;
+    color: #d0dfe6
+}
+
+[data-theme="dark"] textarea{
+    background-color: #111 !important;
+    color: #d0dfe6
+}
 
 /* Other */
 [data-theme="dark"] hr {
