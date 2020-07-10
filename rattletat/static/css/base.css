@@ -1,6 +1,7 @@
 /* Logo */
 @font-face {
     font-family: "Monoton";
+    font-display: swap;
     src: local("Monoton"),
         url("../fonts/Monoton-Regular.ttf") format("truetype");
 }
@@ -13,6 +14,7 @@
 /* Font */
 @font-face {
     font-family: "EB Garamond";
+    font-display: swap;
     font-style: normal;
     font-weight: 500;
     font-display: auto;
