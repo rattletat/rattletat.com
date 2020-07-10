@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 
+<head>
+    {% include "head.html" %}
+    {% block style %}{% endblock %}
+</head>
+
 <body class="d-flex flex-column min-vh-100">
-    <header>
-        {% include "header.html" %}
-        {% block style %}{% endblock %}
-    </header>
 
     {% include "navbar.html" %}
 
