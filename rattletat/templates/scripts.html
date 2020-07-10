@@ -1,4 +1,5 @@
 {% load static %}
+{% load compress %}
 
 <!-- CDN JS -->
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
@@ -12,5 +13,10 @@
     crossorigin="anonymous"></script>
 
 <!-- Local JS -->
+{% compress js %}
 <script src="{% static "js/sweet-scroll.min.js" %}"></script>
+{% endcompress %}
+
+{% compress js inline %}
 <script src="{% static "js/dark_switch.js" %}"></script>
+{% endcompress %}

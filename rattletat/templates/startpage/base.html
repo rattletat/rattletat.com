@@ -1,14 +1,20 @@
 {% extends "base.html" %}
 {% load static %}
+{% load compress %}
 
 {% block style %}
+{% compress css inline %}
 <link rel="stylesheet" type="text/css" href="{% static "startpage/css/base.css" %}">
 <link rel="stylesheet" type="text/css" href="{% static "startpage/css/colors.css" %}">
+{% endcompress %}
 {% endblock %}
 
 {% block script %}
-<script src="{% static "startpage/js/d3.js" %}"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.16.0/d3.min.js"></script>
+
+{% compress js %}
 <script src="{% static "startpage/js/hero.js" %}"></script>
 <script>document.body.setAttribute("data-theme", "dark")</script>
 <script>localStorage.setItem("darkSwitch", "dark")</script>
+{% endcompress %}
 {% endblock %}

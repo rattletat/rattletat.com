@@ -62,6 +62,7 @@ DJANGO_APPS = [
 
 THIRD_PARTY_APPS = [
     "markdownify",
+    "compressor",
 ]
 
 LOCAL_APPS = [
@@ -117,6 +118,10 @@ MIDDLEWARE = [
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.common.BrokenLinkEmailsMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    # Cache + Minify
+    "django.middleware.gzip.GZipMiddleware",
+    "htmlmin.middleware.HtmlMinifyMiddleware",
+    "htmlmin.middleware.MarkRequestMiddleware",
 ]
 
 # STATIC
@@ -128,6 +133,7 @@ STATICFILES_DIRS = [str(APPS_DIR / "static")]
 STATICFILES_FINDERS = [
     "django.contrib.staticfiles.finders.FileSystemFinder",
     "django.contrib.staticfiles.finders.AppDirectoriesFinder",
+    "compressor.finders.CompressorFinder",  # Minify
 ]
 
 # MEDIA
@@ -223,7 +229,6 @@ LOGGING = {
 from rattletat.blog.utils.markdown_prism import PrismCodeExtension
 from markdown_checklist.extension import ChecklistExtension
 
-# MARKDOWNX_MARKDOWNIFY_FUNCTION = "rattletat.blog.utils.secure_markdown.markdownify"
 MARKDOWNIFY_WHITELIST_TAGS = [
     "h2",
     "h3",
@@ -272,3 +277,17 @@ MARKDOWNIFY_MARKDOWN_EXTENSIONS = [
     ChecklistExtension(),
 ]
 MARKDOWNIFY_STRIP = False
+
+
+# COMPRESSOR
+# -------------------------------------------------------------------
+COMPRESS_ENABLED = True
+COMPRESS_CSS_HASHING_METHOD = "content"
+COMPRESS_FILTERS = {
+    "css": [
+        "compressor.filters.css_default.CssAbsoluteFilter",
+        "compressor.filters.cssmin.CSSMinFilter",
+    ],
+    "js": ["compressor.filers.jsmin.JSMinFilter"],
+}
+HTML_MINIFY = True
