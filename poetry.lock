@@ -247,6 +247,14 @@ version = "0.4.5"
 
 [[package]]
 category = "main"
+description = "A jazzy skin for the Django Admin-Interface."
+name = "django-grappelli"
+optional = false
+python-versions = "*"
+version = "2.14.2"
+
+[[package]]
+category = "main"
 description = "HTML minifier for Python frameworks (not only Django, despite the name)."
 name = "django-htmlmin"
 optional = false
@@ -755,7 +763,7 @@ python-versions = "*"
 version = "0.5.1"
 
 [metadata]
-content-hash = "a15465b75fa501d42bb54b6399c17ff50e5cbaae09e5b672441d6cf059130963"
+content-hash = "05a1ce11c783ef590d8fd18c6dae1ddcc3c36b9b5dbbbb36c059b671dfd36f6a"
 python-versions = "^3.8"
 
 [metadata.files]
@@ -912,6 +920,9 @@ django-debug-toolbar = [
 django-environ = [
     {file = "django-environ-0.4.5.tar.gz", hash = "sha256:6c9d87660142608f63ec7d5ce5564c49b603ea8ff25da595fd6098f6dc82afde"},
     {file = "django_environ-0.4.5-py2.py3-none-any.whl", hash = "sha256:c57b3c11ec1f319d9474e3e5a79134f40174b17c7cc024bbb2fad84646b120c4"},
+]
+django-grappelli = [
+    {file = "django-grappelli-2.14.2.tar.gz", hash = "sha256:206d34525007e996dc989f1a0deef653b1fae5e0972a1fb24a59a3ad7e67141a"},
 ]
 django-htmlmin = [
     {file = "django-htmlmin-0.11.0.tar.gz", hash = "sha256:e41b2a2157570846645cc636a9bddde8aa3e03f6834a9211e61a17f2ed42b87e"},

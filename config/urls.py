@@ -11,9 +11,10 @@ urlpatterns = [
     path("", startpage_views.view_startpage, name="startpage"),
     path("projects/", include(projects_urls, namespace="projects")),
     path("blog/", include(blog_urls, namespace="blog")),
-    path("admin/", admin.site.urls),
     path("imprint/", flat_views.flatpage, {"url": "/imprint/"}, name="imprint"),
     path("privacy/", flat_views.flatpage, {"url": "/privacy/"}, name="privacy"),
+    path('grappelli/', include('grappelli.urls')),
+    path("admin/", admin.site.urls),
 ]
 
 if settings.DEBUG:

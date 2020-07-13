@@ -31,6 +31,7 @@ class Project(TimeStampedModel):
 
 class Component(models.Model):
     project = models.ForeignKey(Project, models.CASCADE, related_name="components")
+    position = models.PositiveSmallIntegerField(null=True)
     post = models.ForeignKey(Post, models.SET_NULL, null=True, blank=True)
 
     title = models.CharField(max_length=100, null=True, blank=True)
@@ -40,7 +41,10 @@ class Component(models.Model):
         if self.post:
             return reverse("blog:post", args=[self.post.pk])
         else:
-            return reverse("project:detail", args=[self.pk])
+            return reverse("projects:detail", args=[self.pk])
 
     def __str__(self):
         return self.title
+
+    class Meta:
+        ordering = ["position"]

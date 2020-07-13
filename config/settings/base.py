@@ -56,13 +56,14 @@ DJANGO_APPS = [
     "django.contrib.staticfiles",
     "django.contrib.humanize",  # Handy template tags
     "django.contrib.flatpages",  # Contact
-    "django.contrib.admin",
     "django.forms",
 ]
 
 THIRD_PARTY_APPS = [
     "markdownify",
     "compressor",
+    "grappelli",
+    "django.contrib.admin",
 ]
 
 LOCAL_APPS = [
