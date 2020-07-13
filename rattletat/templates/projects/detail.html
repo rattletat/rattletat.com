@@ -7,7 +7,7 @@
     <hr>
     <br>
     <div class="card-deck">
-        {% for component in project.components.all %}
+        {% for component in project.component_set.all %}
         {% include "projects/component.html" %}
         {% if forloop.counter|divisibleby:"2"  %}
     </div>
