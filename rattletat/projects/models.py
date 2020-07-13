@@ -30,7 +30,7 @@ class Project(TimeStampedModel):
 
 
 class Component(models.Model):
-    project = models.ForeignKey(Project, models.CASCADE, related_name="components")
+    project = models.ForeignKey(Project, models.CASCADE)
     position = models.PositiveSmallIntegerField(null=True)
     post = models.ForeignKey(Post, models.SET_NULL, null=True, blank=True)
 

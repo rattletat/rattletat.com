@@ -15,7 +15,7 @@ class Tag(models.Model):
 
 
 class Post(TimeStampedModel):
-    tags = models.ManyToManyField(Tag, related_name="posts")
+    tags = models.ManyToManyField(Tag)
 
     title = models.CharField(max_length=255)
     description = models.TextField()

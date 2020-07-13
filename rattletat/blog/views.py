@@ -10,6 +10,9 @@ class IndexView(ListView):
     model = Post
     ordering = ["-created"]
 
+    def get_queryset(self):
+        return Post.objects.filter(component=None)
+
 
 class TagView(ListView):
     template_name = "blog/tag.html"
