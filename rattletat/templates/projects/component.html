@@ -2,17 +2,28 @@
 {% load markdownify %}
 
 <div class="card mb-4 bg-light">
+
     {% if component.title %}
       <div class="card-header">{{ component.title }}</div>
     {% endif %}
+
+    {% if component.image %}
+        <img class="card-img-top" src="component.image.url }}">
+    {% endif %}
+
     <div class="card-body d-flex flex-column">
+
     {% if component.description %}
         <p class="card-text">{{ component.description | markdownify }}</p>
     {% endif %}
+
     {% if component.post %}
+    <a href="{% url 'blog:post' component.post.pk %}">
         <button type="button" class="mt-auto btn btn-outline-secondary">
           Read More
         </button>
+    </a>
     {% endif %}
+
     </div>
 </div>

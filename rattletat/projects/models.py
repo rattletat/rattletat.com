@@ -11,7 +11,6 @@ from rattletat.blog.models import Post
 class Project(TimeStampedModel):
     title = models.CharField(max_length=100)
     description = models.TextField()
-    technology = models.CharField(max_length=20)
 
     def _image_path(self, filename):
         return os.path.join(self.root_path, "images", filename)
