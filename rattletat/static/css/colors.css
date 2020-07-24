@@ -74,7 +74,6 @@ a:link, a:visited, a:hover, a:active {
 }
 
 /* Input */
-
 [data-theme="dark"] input[type="text"]{
     background-color: #111 !important;
     color: #d0dfe6
@@ -83,6 +82,16 @@ a:link, a:visited, a:hover, a:active {
 [data-theme="dark"] textarea{
     background-color: #111 !important;
     color: #d0dfe6
+}
+
+/* Table */
+[data-theme="dark"] table tr th {
+    background-color: #111 !important;
+    color: white;
+}
+[data-theme="dark"] table tr td {
+    background-color: #111 !important;
+    color: #d0dfe6;
 }
 
 /* Other */

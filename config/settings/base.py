@@ -254,6 +254,12 @@ MARKDOWNIFY_WHITELIST_TAGS = [
     "br",
     "div",
     "small",
+    "table",
+    "thead",
+    "tbody",
+    "tr",
+    "td",
+    "th",
 ]
 MARKDOWNIFY_WHITELIST_PROTOCOLS = [
     "http",
@@ -272,6 +278,7 @@ MARKDOWNIFY_WHITELIST_ATTRS = [
     "type",
     "disabled",
     "checked",
+    "scope"
 ]
 MARKDOWNIFY_MARKDOWN_EXTENSIONS = [
     PrismCodeExtension(),
