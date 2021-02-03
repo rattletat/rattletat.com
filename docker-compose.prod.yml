@@ -4,7 +4,7 @@ services:
   app-web:
     container_name: app-web
     build:
-      context: ./app
+      context: ./web
       dockerfile: Dockerfile.prod
     command: gunicorn config.wsgi:application --bind 0.0.0.0:8000
     volumes:
