@@ -1,0 +1,16 @@
+{% extends "blog/base.html" %}
+
+{% block page_hero %}
+<svg id="graph" style="z-index:1;"></svg>
+{% endblock %}
+
+{% block page_content %}
+<div class="col-lg-8 col-md-10 mx-auto">
+
+    {% for post in object_list %}
+    {% include "blog/title.html" %}
+    <br>
+    <br>
+    {% endfor %}
+</div>
+{% endblock %}

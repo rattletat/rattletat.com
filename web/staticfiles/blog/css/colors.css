@@ -1,0 +1,33 @@
+[data-theme="dark"] .tag {
+    color: #F9EE98 !important;
+}
+
+[data-theme="dark"] .author {
+    color: #F9EE98 !important;
+}
+
+ h1 {
+    color: black;
+ }
+
+ [data-theme="dark"] .nodes circle {
+     fill: #ff5500;
+     stroke: #000000;
+     stroke-width: 1;
+ }
+
+ [data-theme="dark"] .nodes rect {
+     fill: #black;
+     stroke: #ff5500;
+     stroke-width: 1;
+ }
+
+ [data-theme="dark"] .nodes text {
+     fill: #ff5500;
+ }
+
+ [data-theme="dark"] .edges {
+    stroke: white;
+    stroke-opacity: 0.6;
+    stroke-width: 1;
+ }

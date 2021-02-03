@@ -1,0 +1,31 @@
+{% load active %}
+
+<div class="container">
+    <nav class="navbar navbar-expand-md navbar-light">
+
+        {% if request.path != '/' %}
+        <nav class="navbar navbar-default mr-auto">
+            <div class="navbar-header">
+                <a class="navbar-brand" id="brand" href="{% url 'startpage' %}">Rattle:tat</a>
+            </div>
+        </nav>
+
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
+            data-target="#navbar-navigation" aria-controls="navbar-navigation" aria-expanded="false"
+            aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse text-right" id="navbar-navigation">
+            <div class="navbar-nav ml-auto">
+                <a class="nav-item nav-link {% active request 'projects:index' %}"
+                    href="{% url 'projects:index' %}">projects</a>
+                <a class="nav-item nav-link {% active request 'blog:index' %}" href="{% url 'blog:index' %}">blog</a>
+                <label for="darkSwitch" class="nav-item nav-link" style="cursor:pointer">invert</label>
+                <input type="checkbox" id="darkSwitch" style="display:none" />
+            </div>
+        </div>
+        {% endif %}
+
+    </nav>
+</div>
