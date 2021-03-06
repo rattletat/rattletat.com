@@ -4,6 +4,9 @@ from django.views.generic import ListView, DetailView, CreateView
 from .forms import CommentForm
 from .models import Comment, Post, Tag
 
+from django.shortcuts import render
+from django.template import RequestContext
+
 
 class IndexView(ListView):
     template_name = "blog/index.html"
@@ -11,7 +14,7 @@ class IndexView(ListView):
     ordering = ["-created"]
 
     def get_queryset(self):
-        return Post.objects.filter(component=None)
+        return Post.objects.all()
 
 
 class TagView(ListView):
@@ -34,7 +37,6 @@ class PostView(DetailView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context["comments"] = Comment.objects.filter(post=self.object)
         context["form"] = CommentForm()
         return context
 

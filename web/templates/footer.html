@@ -1,6 +1,7 @@
 {% if request.path != '/' %}
 <div class="container">
   <div class="footer row">
+
     <div class="col col-3 text-center">
       <a href="{% url 'imprint' %}" title="imprint">
         <small>imprint</small>
@@ -8,9 +9,15 @@
     </div>
 
     <div class="col col-3 text-center">
+      {% if tag %}
+      <a href="{% url 'blog:tag-feed' tag %}" title="RSS - {{ tag }}">
+        <small>rss</small>
+      </a>
+      {% else %}
       <a href="{% url 'blog:feed' %}" title="RSS">
         <small>rss</small>
       </a>
+      {% endif %}
     </div>
 
     <div class="col col-3 text-center">

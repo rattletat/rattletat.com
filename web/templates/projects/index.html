@@ -1,9 +1,10 @@
 {% extends "base.html" %}
 
 {% block page_content %}
+    {% if projects.exists %}
 <div class="col-md-8 offset-md-2">
     <div class="card-deck">
-        {% for project in projects %}
+        {% for project in projects.all %}
         {% include "projects/card.html" %}
         {% if forloop.counter|divisibleby:"2"  %}
     </div>
@@ -12,4 +13,5 @@
         {% endfor %}
     </div>
 </div>
+{% endif %}
 {% endblock %}

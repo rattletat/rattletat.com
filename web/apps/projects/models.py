@@ -30,7 +30,9 @@ class Project(TimeStampedModel):
 
 class Component(models.Model):
     project = models.ForeignKey(Project, models.CASCADE)
-    position = models.PositiveSmallIntegerField(null=True)
+    position = models.PositiveSmallIntegerField(
+        default=0, editable=False, db_index=True
+    )
     post = models.ForeignKey(Post, models.SET_NULL, null=True, blank=True)
 
     title = models.CharField(max_length=100, null=True, blank=True)
@@ -38,7 +40,7 @@ class Component(models.Model):
 
     def get_absolute_url(self):
         if self.post:
-            return reverse("blog:post", args=[self.post.pk])
+            return reverse("blog:post", args=[self.post])
         else:
             return reverse("projects:detail", args=[self.pk])
 

@@ -1,7 +1,14 @@
 from django.contrib import admin
+from adminsortable2.admin import SortableInlineAdminMixin
 
-from .models import Post, Tag
+from .models import Post, PostComponent, Tag
 
+class PostComponentInline(SortableInlineAdminMixin, admin.TabularInline):  # or admin.StackedInline
+    model = PostComponent
+    extra = 1
 
-admin.site.register(Post)
+@admin.register(Post)
+class PostAdmin(admin.ModelAdmin):
+    inlines = (PostComponentInline,)
+
 admin.site.register(Tag)

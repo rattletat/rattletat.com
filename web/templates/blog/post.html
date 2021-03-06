@@ -1,16 +1,15 @@
 {% extends "blog/base.html" %}
-{% load markdownify %}
 
 {% block page_content %}
 <div class="col-lg-8 col-md-10 mx-auto">
     {% include "blog/title.html" %}
-    <hr>
-    <p>{{ post.text | markdownify }}</p>
+    {% include "blog/components.html" %}
 
     {% include "blog/comment_form.html" %}
     <br>
     {% include "blog/comments.html" %}
     <br>
     {% include "blog/footer.html" %}
+    <br>
 </div>
 {% endblock %}

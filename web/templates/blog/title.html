@@ -12,5 +12,5 @@
     <a class="tag" href="{% url 'blog:tag' tag.name %}">{{ tag.name }}</a>&nbsp;
     {% endfor %}
     <br>
-    {{ post.description | truncatewords:20 }}
+    {{ post.description | markdownify | truncatewords:20 }}
 </small>

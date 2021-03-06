@@ -1,6 +1,6 @@
-{% if comments %}
+{% if post.comments.exists %}
 <h3>Comments:</h3>
-{% for comment in comments %}
+{% for comment in post.comments.all %}
 <p>
   On {{comment.created.date }}&nbsp;
   <b class="author">{{ comment.author }}</b> wrote:

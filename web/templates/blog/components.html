@@ -1,0 +1,17 @@
+{% load markdownify %}
+
+{% if post.components.exists %}
+{% for component in post.components.all %}
+{% if component.identifier %}
+<div class="card mb-4 post-component" id="{{ component.identifier }}">
+{% else %}
+<div class="card mb-4 post-component">
+{% endif %}
+<div class="card-body d-flex flex-column">
+{% if component.content %}
+<p class="card-text">{{ component.content | markdownify }}</p>
+{% endif %}
+</div>
+</div>
+{% endfor %}
+{% endif %}

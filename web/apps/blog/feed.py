@@ -12,7 +12,7 @@ class LatestPostsFeed(Feed):
         return Post.objects.order_by("-created")[:5]
 
     def item_description(self, post):
-        return truncatewords(post.text, 50)
+        return truncatewords(post.description, 50)
 
 
 class LatestTagPostFeed(Feed):
@@ -28,4 +28,4 @@ class LatestTagPostFeed(Feed):
         return Post.objects.filter(tags__name=tag).order_by("-created")[:5]
 
     def item_description(self, post):
-        return truncatewords(post.text, 50)
+        return truncatewords(post.description, 50)

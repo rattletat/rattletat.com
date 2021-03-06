@@ -1,10 +1,10 @@
 from django.contrib import admin
-from grappelli.forms import GrappelliSortableHiddenMixin
+from adminsortable2.admin import SortableInlineAdminMixin
 
 from .models import Project, Component
 
 
-class ComponentInline(GrappelliSortableHiddenMixin, admin.TabularInline):
+class ComponentInline(SortableInlineAdminMixin, admin.TabularInline):
     model = Component
     extra = 0
 

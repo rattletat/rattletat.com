@@ -1,6 +1,7 @@
 /* Bootstrap */
+
 [data-theme="dark"] {
-    background-color: #111 !important;
+    background-color: black !important;
     color: #d0dfe6;
 }
 
@@ -42,15 +43,20 @@ a:link, a:visited, a:hover, a:active {
 }
 
 /* Navbar */
+[data-theme="dark"] .navbar-brand {
+  color: #ff5500 !important;
+}
 [data-theme="dark"] .nav-link {
   color: #d0dfe6 !important;
+}
+[data-theme="dark"] .nav-link:hover {
+  color: white !important;
 }
 [data-theme="dark"] .active {
   color: #ff410d !important;
 }
-
-[data-theme="dark"] .navbar-brand {
-  color: #ff410d !important;
+[data-theme="dark"] .active:hover {
+  color: #ff5500 !important;
 }
 
 [data-theme="dark"] .navbar-toggler-icon {
@@ -65,23 +71,6 @@ a:link, a:visited, a:hover, a:active {
 [data-theme="dark"] .navbar-toggler:focus {
   outline-color: #ff5500;
   border-color: #ff5500;
-}
-
-
-/* Buttons */
-[data-theme="dark"] .btn {
-    color: #F9EE98  !important;
-}
-
-/* Input */
-[data-theme="dark"] input[type="text"]{
-    background-color: #111 !important;
-    color: #d0dfe6
-}
-
-[data-theme="dark"] textarea{
-    background-color: #111 !important;
-    color: #d0dfe6
 }
 
 /* Table */
@@ -104,3 +93,9 @@ a:link, a:visited, a:hover, a:active {
   background:#333 !important;
   border-left:8px solid #ff5500 !important;
 }
+
+/* Footer */
+ [data-theme="dark"] .footer a {
+     color: #ff410d;
+     font-size: 16px;
+ }

@@ -14,13 +14,19 @@
 {% endblock %}
 
 {% block script %}
-<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.16.0/d3.min.js"></script> -->
 <script src="https://d3js.org/d3.v6.js"></script>
 
 {% compress js %}
+{% if object_list.exists %}
 <script src="{% static "blog/js/graph.js" %}"></script>
 <script type="text/javascript">plot_graph('{{ object_list | post_to_js | safe }}')</script>
+{% endif %}
+{% if post %}
 <script src="{% static "blog/js/clipboard.min.js" %}"></script>
 <script src="{% static "blog/js/prism.js" %}"></script>
+{% endif %}
+{% if post.javascript %}
+    <script type="text/javascript">{{ post.javascript | safe }}</script>
+{% endif %}
 {% endcompress %}
 {% endblock %}

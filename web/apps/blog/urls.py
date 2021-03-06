@@ -9,5 +9,5 @@ urlpatterns = [
     path("<int:pk>/comment", views.CommentCreateView.as_view(), name="comment"),
     path("tag/<tag>/", views.TagView.as_view(), name="tag"),
     path("feed/", LatestPostsFeed(), name="feed"),
-    path("feed/<tag>/", LatestTagPostFeed()),
+    path("feed/<tag>/", LatestTagPostFeed(), name="tag-feed"),
 ]

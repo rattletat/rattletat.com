@@ -7,7 +7,7 @@
 {% block page_content %}
 <div class="col-lg-8 col-md-10 mx-auto">
 
-    {% for post in object_list %}
+    {% for post in object_list.all|slice:"3" %}
     {% include "blog/title.html" %}
     <br>
     <br>

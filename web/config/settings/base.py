@@ -37,12 +37,12 @@ USE_TZ = True
 
 DATABASES = {
     "default": {
-        "ENGINE": env("SQL_ENGINE"),
-        "NAME": env("SQL_DB"),
-        "USER": env("SQL_USER"),
-        "PASSWORD": env("SQL_PASSWORD"),
-        "HOST": env("SQL_HOST"),
-        "PORT": env("SQL_PORT"),
+        "ENGINE": env("SQL_ENGINE", default=""),
+        "NAME": env("SQL_DB", default=""),
+        "USER": env("SQL_USER", default=""),
+        "PASSWORD": env("SQL_PASSWORD", default=""),
+        "HOST": env("SQL_HOST", default=""),
+        "PORT": env("SQL_PORT", default=""),
     }
 }
 
@@ -70,8 +70,8 @@ DJANGO_APPS = [
 THIRD_PARTY_APPS = [
     "markdownify",
     "compressor",
-    "grappelli",
     "django.contrib.admin",
+    "adminsortable2",
 ]
 
 LOCAL_APPS = [
@@ -286,7 +286,7 @@ MARKDOWNIFY_WHITELIST_ATTRS = [
     "type",
     "disabled",
     "checked",
-    "scope"
+    "scope",
 ]
 MARKDOWNIFY_MARKDOWN_EXTENSIONS = [
     PrismCodeExtension(),

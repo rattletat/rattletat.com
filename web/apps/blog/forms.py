@@ -14,8 +14,8 @@ class CommentForm(forms.ModelForm):
             "text": forms.Textarea(
                 attrs={
                     "class": "form-control",
-                    "placeholder": "Leave a comment.",
-                    "rows": 3,
+                    "placeholder": "Your comment.",
+                    "rows": 1,
                 }
             ),
         }

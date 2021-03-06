@@ -13,7 +13,6 @@ urlpatterns = [
     path("blog/", include(blog_urls, namespace="blog")),
     path("imprint/", flat_views.flatpage, {"url": "/imprint/"}, name="imprint"),
     path("privacy/", flat_views.flatpage, {"url": "/privacy/"}, name="privacy"),
-    path('grappelli/', include('grappelli.urls')),
     path("admin/", admin.site.urls),
 ]
 

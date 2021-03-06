@@ -49,7 +49,7 @@ function plot_graph(data) {
             .enter()
             .filter(d => d.type === "post")
             .append("circle")
-            .attr("r", "1vw")
+            .attr("r", "0.8vw")
             .on("click", (_, post) => window.location = post.url)
             .style("cursor", "pointer")
 
@@ -94,7 +94,7 @@ function plot_graph(data) {
         };
 
         // Simulation
-        const centerForceX = d3.forceX(dimensions.width / 2).strength(0.01)
+        const centerForceX = d3.forceX(dimensions.width / 2).strength(0.04)
         const centerForceY = d3.forceY(dimensions.height / 2).strength(0.1)
         const centerForce = d3.forceCenter(dimensions.width / 2, dimensions.height / 2);
         const repelForce = d3.forceManyBody().strength(-300)
