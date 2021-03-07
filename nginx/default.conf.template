@@ -43,6 +43,15 @@ server {
       proxy_pass http://api;
     }
 
+    location /staticfiles/ {
+        alias /var/www/staticfiles/;
+    }
+
+    location /mediafiles/ {
+        internal;
+        alias /var/www/mediafiles/;
+    }
+
     location ^~ /.well-known/acme-challenge/ {
         root /var/www/html;
     }
