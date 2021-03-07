@@ -33,7 +33,7 @@ services:
       - /var/lib/letsencrypt:/var/lib/letsencrypt
       - ./nginx:/etc/nginx/templates
     ports:
-      - 80:8000
+      - 8000:80
       - 443:443
     depends_on:
       - app-web
