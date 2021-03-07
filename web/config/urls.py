@@ -13,7 +13,7 @@ urlpatterns = [
     path("blog/", include(blog_urls, namespace="blog")),
     path("contact/", flat_views.flatpage, {"url": "/contact/"}, name="contact"),
     path("privacy/", flat_views.flatpage, {"url": "/privacy/"}, name="privacy"),
-    path("admin/", admin.site.urls),
+    path(settings.ADMIN_URL, admin.site.urls),
 ]
 
 if settings.DEBUG:

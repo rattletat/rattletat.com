@@ -4,10 +4,9 @@ from .base import env
 # GENERAL
 # -------------------------------------------------------------------
 DEBUG = True
-SECRET_KEY = env(
-    "DJANGO_SECRET_KEY", default="unsecure-dev-key"
-)
+SECRET_KEY = env("DJANGO_SECRET_KEY", default="unsecure-dev-key")
 ALLOWED_HOSTS = ["localhost", "0.0.0.0", "127.0.0.1"]
+ADMIN_URL = "admin/"
 
 # CACHES
 # -------------------------------------------------------------------
