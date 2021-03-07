@@ -12,7 +12,7 @@ APPS_DIR = ROOT_DIR / "apps"
 env = environ.Env()
 
 # OS environment variables take precedence over variables from .env
-env.read_env(str(ROOT_DIR / ".env"))
+# env.read_env(str(ROOT_DIR / ".env"))
 
 
 # GENERAL
@@ -25,7 +25,7 @@ LANGUAGES = (
 DEBUG = env.bool("DJANGO_DEBUG", False)
 TIME_ZONE = "UTC"
 LANGUAGE_CODE = "en"
-SITE_ID = env("SITE_ID", default="")
+SITE_ID = env("DJANGO_SITE_ID", default=1)
 USE_I18N = True
 USE_L10N = True
 USE_TZ = True

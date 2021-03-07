@@ -5,7 +5,7 @@ from .base import env
 # -------------------------------------------------------------------
 DEBUG = True
 SECRET_KEY = env(
-    "SECRET_KEY", default="unsecure-dev-key"
+    "DJANGO_SECRET_KEY", default="unsecure-dev-key"
 )
 ALLOWED_HOSTS = ["localhost", "0.0.0.0", "127.0.0.1"]
 
@@ -27,7 +27,7 @@ EMAIL_BACKEND = env(
 )
 EMAIL_HOST = "posteo.de"
 EMAIL_HOST_USER = "michael.brauweiler@posteo.net"
-EMAIL_HOST_PASSWORD = env("EMAIL_PASSWORD", default="")
+EMAIL_HOST_PASSWORD = env("DJANGO_EMAIL_PASSWORD", default="")
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 
