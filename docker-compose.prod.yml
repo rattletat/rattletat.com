@@ -33,7 +33,7 @@ services:
       - /var/lib/letsencrypt:/var/lib/letsencrypt
       - nginx_conf:/etc/nginx/conf.d:ro
     ports:
-      - 80:80
+      - 80:8000
       - 443:443
     depends_on:
       - app-web
