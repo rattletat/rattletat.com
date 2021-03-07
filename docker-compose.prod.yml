@@ -27,8 +27,8 @@ services:
     container_name: app-nginx
     image: nginx:1.19.0
     volumes:
-      - static_volume:/home/app/web/staticfiles
-      - media_volume:/home/app/web/mediafiles
+      - static_volume:/var/www/staticfiles
+      - media_volume:/var/www/mediafiles
       - /etc/letsencrypt:/etc/letsencrypt
       - /var/lib/letsencrypt:/var/lib/letsencrypt
       - ./nginx:/etc/nginx/templates
