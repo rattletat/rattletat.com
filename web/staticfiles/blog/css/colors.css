@@ -34,7 +34,9 @@
     display: table;
     padding: 2px;
     background-color: #ff410d;
-    color: black !important;
+    font-family: monospace, monospace;
+    font-weight: bold;
+    font-size: 1.5em;
  }
 
  /* Post content */
