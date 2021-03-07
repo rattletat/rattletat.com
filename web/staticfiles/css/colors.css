@@ -34,17 +34,16 @@ a:link, a:visited, a:hover, a:active {
 
 
 /* Header */
-[data-theme="dark"] h1,
-[data-theme="dark"] h2,
-[data-theme="dark"] h3,
-[data-theme="dark"] h4,
-[data-theme="dark"] h5 {
+h1, h2, h3, h4, h5 {
+    color: black;
+ }
+[data-theme="dark"] h1, h2, h3, h4, h5 {
     color: white !important;
 }
 
 /* Navbar */
 [data-theme="dark"] .navbar-brand {
-  color: #ff5500 !important;
+  color: #ff410d !important;
 }
 [data-theme="dark"] .nav-link {
   color: #d0dfe6 !important;
@@ -84,8 +83,8 @@ a:link, a:visited, a:hover, a:active {
 }
 
 /* Other */
-[data-theme="dark"] hr {
-    background:#333;
+hr {
+    width: 96%;
 }
 
 [data-theme="dark"] blockquote {

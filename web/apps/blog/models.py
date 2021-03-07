@@ -1,3 +1,4 @@
+from autoslug import AutoSlugField
 from django.db import models
 from django.shortcuts import reverse
 from model_utils.models import TimeStampedModel
@@ -15,9 +16,10 @@ class Tag(models.Model):
 
 
 class Post(TimeStampedModel):
+    title = models.CharField(max_length=250)
+    slug = AutoSlugField(max_length=500, populate_from="title")
     tags = models.ManyToManyField(Tag)
 
-    title = models.CharField(max_length=255)
     description = models.TextField()
     javascript = models.TextField(null=True, blank=True)
 
@@ -28,7 +30,7 @@ class Post(TimeStampedModel):
         return prev_in_order(self)
 
     def get_absolute_url(self):
-        return reverse("blog:post", args=[self.pk])
+        return reverse("blog:post", args=[self.slug])
 
     def __str__(self):
         return self.title

@@ -1,22 +1,22 @@
 /* Graph */
  [data-theme="dark"] .nodes circle {
-     fill: #ff5500;
+     fill: #ff410d;
      stroke: #000000;
      stroke-width: 1;
  }
 
  [data-theme="dark"] .nodes rect {
      fill: #black;
-     stroke: #ff5500;
+     stroke: #ff410d;
      stroke-width: 1;
  }
 
  [data-theme="dark"] .nodes text {
-     fill: #ff5500;
+     fill: #ff410d;
  }
 
  [data-theme="dark"] .edges {
-    stroke: white;
+    stroke: #d0dfe6;
     stroke-opacity: 0.6;
     stroke-width: 1;
  }
@@ -30,29 +30,42 @@
     color: #F9EE98 !important;
 }
 
- h1 {
-    color: black;
+[data-theme="dark"] .post-title {
+    display: table;
+    padding: 2px;
+    background-color: #ff410d;
+    color: black !important;
  }
 
  /* Post content */
 [data-theme="dark"] .card {
     background-color: black;
-    border-color: #ff5500;
+    border-color: #ff410d;
     border-width: 1px;
     border-style: dashed dashed;
 }
 
+.code-toolbar pre {
+    border-width: 1px !important;
+    font-size: 13px !important;
+}
+
 [data-theme="dark"] .code-toolbar pre {
-    border-color: #ff5500;
-    border-width: 1px;
-    border-style: dashed dashed;
+    border-color: #ff410d;
+    border-style: dotted dotted;
+    background-color: black;
+}
+
+[data-theme="dark"] hr {
+    border-top: 1px dashed;
+    color: #ff410d;
 }
 
  /* Comment section */
 [data-theme="dark"] .form-group input[type="text"] {
     background-color: black;
     color: #d0dfe6;
-    border-color: #ff5500;
+    border-color: #ff410d;
     border-opacity: 0;
     border-width: 1px;
     border-style: none none dotted none;
@@ -62,15 +75,14 @@
     background-color: black;
     color: #d0dfe6;
     height: 38px;
-    border-color: #ff5500;
+    border-color: #ff410d;
     border-width: 1px;
     border-style: none none dotted none;
 }
 
 [data-theme="dark"] .btn {
-    border-color: #ff5500;
+    border-color: #ff410d;
     border-width: 1px;
-    border-style: dotted dotted;
     color: #d0dfe6 !important;
 }
 

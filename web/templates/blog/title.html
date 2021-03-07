@@ -1,7 +1,7 @@
 {% load markdownify %}
 
-<a href="{% url 'blog:post' post.pk %}">
-    <h1>{{ post.title }}</h1>
+<a href="{% url 'blog:post' post.slug %}">
+    <h2 class="post-title">{{ post.title }}</h2>
 </a>
 <small>
     {{ post.created.date }} &nbsp;
@@ -12,5 +12,5 @@
     <a class="tag" href="{% url 'blog:tag' tag.name %}">{{ tag.name }}</a>&nbsp;
     {% endfor %}
     <br>
-    {{ post.description | markdownify | truncatewords:20 }}
+    {{ post.description | markdownify }}
 </small>

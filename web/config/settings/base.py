@@ -25,7 +25,7 @@ LANGUAGES = (
 DEBUG = env.bool("DJANGO_DEBUG", False)
 TIME_ZONE = "UTC"
 LANGUAGE_CODE = "en"
-SITE_ID = 1
+SITE_ID = env("SITE_ID", default="")
 USE_I18N = True
 USE_L10N = True
 USE_TZ = True
@@ -260,6 +260,7 @@ MARKDOWNIFY_WHITELIST_TAGS = [
     "code",
     "input",
     "br",
+    "hr",
     "div",
     "small",
     "table",

@@ -40,6 +40,10 @@ class PostView(DetailView):
         context["form"] = CommentForm()
         return context
 
+    def get_object(self):
+        post_slug = self.kwargs["post_slug"]
+        return Post.objects.get(slug=post_slug)
+
 
 class CommentCreateView(CreateView):
     form_class = CommentForm
