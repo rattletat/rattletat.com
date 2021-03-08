@@ -3,6 +3,11 @@ upstream api {
 }
 
 server {
+    server_name www.rattletat.com;
+    return 301 $scheme://rattletat$request_uri
+}
+
+server {
     listen 80 default_server;
     return 444;
 }
