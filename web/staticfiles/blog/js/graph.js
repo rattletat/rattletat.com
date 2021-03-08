@@ -49,7 +49,7 @@ function plot_graph(data) {
             .enter()
             .filter(d => d.type === "post")
             .append("circle")
-            .attr("r", "0.8vw")
+            .attr("r", "15px")
             .on("click", (_, post) => window.location = post.url)
             .style("cursor", "pointer")
 
@@ -72,7 +72,7 @@ function plot_graph(data) {
             .append("text")
             .attr("text-anchor", "start")
             .attr("fill", "white")
-            .attr("font-size", "1.4vw")
+            .attr("font-size", "15px")
             .text(d => d.title)
             .on("click", (_, tag) => window.location = tag.url)
             .style("cursor", "pointer")
@@ -85,13 +85,13 @@ function plot_graph(data) {
             .attr("width", function () {return this.parentNode.getBBox().width + 10;})
             .attr("height", function () {return this.parentNode.getBBox().height + 10;})
 
-        window.onresize = function () {
-            tags.selectAll("rect")
-                .attr("x", function () {return this.parentNode.lastElementChild.getBBox().x - 5;})
-                .attr("y", function () {return this.parentNode.lastElementChild.getBBox().y - 5;})
-                .attr("width", function () {return this.parentNode.lastElementChild.getBBox().width + 10;})
-                .attr("height", function () {return this.parentNode.lastElementChild.getBBox().height + 10;})
-        };
+        // window.onresize = function () {
+        //     tags.selectAll("rect")
+        //         .attr("x", function () {return this.parentNode.lastElementChild.getBBox().x - 5;})
+        //         .attr("y", function () {return this.parentNode.lastElementChild.getBBox().y - 5;})
+        //         .attr("width", function () {return this.parentNode.lastElementChild.getBBox().width + 10;})
+        //         .attr("height", function () {return this.parentNode.lastElementChild.getBBox().height + 10;})
+        // };
 
         // Simulation
         const centerForceX = d3.forceX(dimensions.width / 2).strength(0.04)
