@@ -38,7 +38,4 @@ COPY --chown=app:app . $APP_HOME
 
 USER app
 
-RUN python manage.py collectstatic --noinput
-RUN python manage.py compress
-
 ENTRYPOINT ["/home/app/entrypoint.sh"]
