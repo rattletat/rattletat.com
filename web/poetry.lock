@@ -293,7 +293,7 @@ html5lib = "*"
 
 [[package]]
 name = "django-markdownify"
-version = "0.8.2"
+version = "0.9.0"
 description = "Markdown template filter for Django."
 category = "main"
 optional = false
@@ -725,17 +725,6 @@ optional = false
 python-versions = ">=2.6, !=3.0.*, !=3.1.*, !=3.2.*"
 
 [[package]]
-name = "python-memcached"
-version = "1.59"
-description = "Pure python memcached client"
-category = "main"
-optional = false
-python-versions = "*"
-
-[package.dependencies]
-six = ">=1.4.0"
-
-[[package]]
 name = "pytz"
 version = "2021.1"
 description = "World timezone definitions, modern and historical"
@@ -848,7 +837,7 @@ python-versions = "*"
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.8"
-content-hash = "989c79ade56f830f1bcefe80d3b2be06e750618a5dd3428c821bb4966ae31be9"
+content-hash = "3497fd10b64356a40da5c4747da760cf9bea62976070173ee9ae5f91c761e3f3"
 
 [metadata.files]
 appdirs = [
@@ -1014,8 +1003,8 @@ django-htmlmin = [
     {file = "django-htmlmin-0.11.0.tar.gz", hash = "sha256:e41b2a2157570846645cc636a9bddde8aa3e03f6834a9211e61a17f2ed42b87e"},
 ]
 django-markdownify = [
-    {file = "django-markdownify-0.8.2.tar.gz", hash = "sha256:42de7e691c0a9239bda8540de57a254d70c938bdb09f514dcafa9c197a06e6fa"},
-    {file = "django_markdownify-0.8.2-py3-none-any.whl", hash = "sha256:28ee91769c97a7374716ce0fd1dcd3094fc3405af8b876db88e9787401adb40b"},
+    {file = "django-markdownify-0.9.0.tar.gz", hash = "sha256:b060eb7869f493f7bff390ba2f7a81b981dd6c5f163dbb95423b6cf714ca4d23"},
+    {file = "django_markdownify-0.9.0-py3-none-any.whl", hash = "sha256:2d3e460a34fb4498c8f7a054e7c6d4d5f67cc0792f86331b2af2dc27f776b65c"},
 ]
 django-model-utils = [
     {file = "django-model-utils-4.1.1.tar.gz", hash = "sha256:eb5dd05ef7d7ce6bc79cae54ea7c4a221f6f81e2aad7722933aee66489e7264b"},
@@ -1252,10 +1241,6 @@ pynacl = [
 pyparsing = [
     {file = "pyparsing-2.4.7-py2.py3-none-any.whl", hash = "sha256:ef9d7589ef3c200abe66653d3f1ab1033c3c419ae9b9bdb1240a85b024efc88b"},
     {file = "pyparsing-2.4.7.tar.gz", hash = "sha256:c203ec8783bf771a155b207279b9bccb8dea02d8f0c9e5f8ead507bc3246ecc1"},
-]
-python-memcached = [
-    {file = "python-memcached-1.59.tar.gz", hash = "sha256:a2e28637be13ee0bf1a8b6843e7490f9456fd3f2a4cb60471733c7b5d5557e4f"},
-    {file = "python_memcached-1.59-py2.py3-none-any.whl", hash = "sha256:4dac64916871bd3550263323fc2ce18e1e439080a2d5670c594cf3118d99b594"},
 ]
 pytz = [
     {file = "pytz-2021.1-py2.py3-none-any.whl", hash = "sha256:eb10ce3e7736052ed3623d49975ce333bcd712c7bb19a58b9e2089d4057d0798"},

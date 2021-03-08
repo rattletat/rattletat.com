@@ -68,7 +68,7 @@ DJANGO_APPS = [
 ]
 
 THIRD_PARTY_APPS = [
-    "markdownify",
+    "markdownify.apps.MarkdownifyConfig",
     "compressor",
     "django.contrib.admin",
     "adminsortable2",
@@ -239,60 +239,26 @@ from apps.blog.utils.markdown_prism import PrismCodeExtension
 from markdown_checklist.extension import ChecklistExtension
 from markdown_katex.extension import KatexExtension
 
-MARKDOWNIFY_WHITELIST_TAGS = [
-    "h2",
-    "h3",
-    "h4",
-    "h5",
-    "h6",
-    "a",
-    "abbr",
-    "acronym",
-    "b",
-    "em",
-    "i",
-    "li",
-    "ol",
-    "p",
-    "blockquote",
-    "strong",
-    "ul",
-    "pre",
-    "code",
-    "input",
-    "br",
-    "hr",
-    "div",
-    "small",
-    "table",
-    "thead",
-    "tbody",
-    "tr",
-    "td",
-    "th",
-]
-MARKDOWNIFY_WHITELIST_PROTOCOLS = [
-    "http",
-    "https",
-]
-MARKDOWNIFY_LINKIFY_PARSE_EMAIL = True
-MARKDOWNIFY_LINKIFY_SKIP_TAGS = [
-    "pre",
-    "code",
-]
-MARKDOWNIFY_WHITELIST_ATTRS = [
-    "href",
-    "src",
-    "alt",
-    "class",
-    "type",
-    "disabled",
-    "checked",
-    "scope",
-]
-MARKDOWNIFY_MARKDOWN_EXTENSIONS = [
-    PrismCodeExtension(),
-    ChecklistExtension(),
-    KatexExtension(),
-]
-MARKDOWNIFY_STRIP = False
+MARKDOWNIFY = {
+    "default": {
+        "MARKDOWN_EXTENSIONS": [
+            PrismCodeExtension(),
+            ChecklistExtension(),
+            KatexExtension(),
+        ],
+        "STRIP": False,
+        "BLEACH": False,
+    },
+    "comment": {
+        "WHITELIST_TAGS": [],
+        "WHITELIST_ATTRS": [],
+        "WHITELIST_STYLES": [],
+        "WHITELIST_PROTOCOLS": [],
+        "LINKIFY_TEXT": {
+            "PARSE_URLS": True,
+            "PARSE_EMAIL": True,
+            "CALLBACKS": [],
+            "SKIP_TAGS": [],
+        },
+    },
+}
