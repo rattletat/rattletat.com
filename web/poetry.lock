@@ -516,6 +516,18 @@ coverage = ["figleaf", "coverage"]
 testing = ["pytest"]
 
 [[package]]
+name = "markdown-katex"
+version = "202009.1026"
+description = "katex extension for Python Markdown"
+category = "main"
+optional = false
+python-versions = ">=2.7"
+
+[package.dependencies]
+Markdown = ">=3.0"
+pathlib2 = "*"
+
+[[package]]
 name = "mccabe"
 version = "0.6.1"
 description = "McCabe checker, plugin for flake8"
@@ -836,7 +848,7 @@ python-versions = "*"
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.8"
-content-hash = "c1053a63b65039f9ea760d0f37289ce6ccd1030462bcdb66535dd8b5bce568ba"
+content-hash = "989c79ade56f830f1bcefe80d3b2be06e750618a5dd3428c821bb4966ae31be9"
 
 [metadata.files]
 appdirs = [
@@ -1085,6 +1097,10 @@ markdown = [
 ]
 markdown-checklist = [
     {file = "markdown-checklist-0.4.3.tar.gz", hash = "sha256:4e9e76bfe72e2d1bb8e12c9599b3d23305662b356623d48b52caf351fff3d93f"},
+]
+markdown-katex = [
+    {file = "markdown-katex-202009.1026.tar.gz", hash = "sha256:956cd1a3aee2302839fe56b9914c493950cd359db233a4e68897d57bf3f35361"},
+    {file = "markdown_katex-202009.1026-py2.py3-none-any.whl", hash = "sha256:67fb883a823bc94ee7aac73ac2aff1324cef975abb43b3170e57d71b96b3fe4f"},
 ]
 mccabe = [
     {file = "mccabe-0.6.1-py2.py3-none-any.whl", hash = "sha256:ab8a6258860da4b6677da4bd2fe5dc2c659cff31b3ee4f7f5d64e79735b80d42"},

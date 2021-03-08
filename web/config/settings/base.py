@@ -237,6 +237,7 @@ LOGGING = {
 # -------------------------------------------------------------------
 from apps.blog.utils.markdown_prism import PrismCodeExtension
 from markdown_checklist.extension import ChecklistExtension
+from markdown_katex.extension import KatexExtension
 
 MARKDOWNIFY_WHITELIST_TAGS = [
     "h2",
@@ -292,5 +293,6 @@ MARKDOWNIFY_WHITELIST_ATTRS = [
 MARKDOWNIFY_MARKDOWN_EXTENSIONS = [
     PrismCodeExtension(),
     ChecklistExtension(),
+    KatexExtension(),
 ]
 MARKDOWNIFY_STRIP = False
