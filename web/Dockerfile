@@ -25,6 +25,8 @@ RUN poetry install --no-interaction --no-ansi
 
 COPY ./entrypoint.sh .
 
+COPY ./entrypoint.sh .
+RUN chmod +x entrypoint.sh
 COPY . .
 
 # run entrypoint.sh

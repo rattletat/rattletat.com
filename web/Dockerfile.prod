@@ -24,8 +24,11 @@ COPY pyproject.toml .
 RUN poetry install --no-interaction --no-ansi
 
 COPY ./entrypoint.sh .
-
+RUN chmod +x entrypoint.sh
 COPY . .
+
+RUN adduser --disabled-password myuser
+USER myuser
 
 # run entrypoint.sh
 ENTRYPOINT ["/usr/src/app/entrypoint.sh"]

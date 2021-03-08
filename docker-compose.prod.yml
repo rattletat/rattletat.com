@@ -29,9 +29,9 @@ services:
     volumes:
       - static_volume:/var/www/staticfiles
       - media_volume:/var/www/mediafiles
+      - ./nginx:/etc/nginx/templates
       - /etc/letsencrypt:/etc/letsencrypt
       - /var/lib/letsencrypt:/var/lib/letsencrypt
-      - ./nginx:/etc/nginx/templates
     ports:
       - 80:80
       - 443:443
