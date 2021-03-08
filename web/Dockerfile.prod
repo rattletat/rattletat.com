@@ -1,18 +1,24 @@
 # pull official base image
 FROM python:3.8.3-buster
 
-# set work directory
-WORKDIR /usr/src/app
-
-# Non-root user
-RUN groupadd -r app && useradd -r -g app -s /sbin/nologin -c "Docker image user" app
-
 # set environment variables
 ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
 
 ENV POETRY_VERSION 1.0.10
 ENV POETRY_VIRTUALENVS_CREATE false
+
+# Non-root user
+RUN addgroup -S app
+RUN adduser -S app -G app
+
+# set work directory
+ENV HOME=/home/app
+ENV APP_HOME=/home/app
+RUN mkdir $APP_HOME
+RUN mkdir $APP_HOME/staticfiles
+RUN mkdir $APP_HOME/mediafiles
+WORKDIR $APP_HOME
 
 # install psycopg2 dependencies
 RUN apt-get update \
@@ -26,11 +32,13 @@ COPY poetry.lock .
 COPY pyproject.toml .
 RUN poetry install --no-interaction --no-ansi
 
-COPY --chown=app:app ./entrypoint.sh .
-RUN chmod +x entrypoint.sh
-COPY --chown=app:app . .
+COPY --chown=app:app ./entrypoint.sh $APP_HOME
+COPY --chown=app:app . $APP_HOME
 
 USER app
 
-# run entrypoint.sh
-ENTRYPOINT ["/usr/src/app/entrypoint.sh"]
+RUN python manage.py migrate
+RUN python manage.py collectstatic --noinput
+RUN python manage.py compress
+
+CMD gunicorn --bind 0.0.0.0:8000 --workers 3 config.wsgi:application

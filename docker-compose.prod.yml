@@ -6,7 +6,6 @@ services:
     build:
       context: ./web
       dockerfile: Dockerfile.prod
-    command: gunicorn --bind 0.0.0.0:8000 --workers 3 config.wsgi:application
     volumes:
       - static_volume:/usr/src/app/staticfiles/
       - media_volume:/usr/src/app/mediafiles/
