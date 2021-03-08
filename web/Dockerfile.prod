@@ -9,8 +9,8 @@ ENV POETRY_VERSION 1.0.10
 ENV POETRY_VIRTUALENVS_CREATE false
 
 # Non-root user
-RUN addgroup -S app
-RUN adduser -S app -G app
+RUN groupadd -r app
+RUN useradd -r -g app -d /home/app -s /sbin/nologin -c "Docker image user" app
 
 # set work directory
 ENV HOME=/home/app
