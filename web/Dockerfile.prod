@@ -27,8 +27,8 @@ COPY ./entrypoint.sh .
 RUN chmod +x entrypoint.sh
 COPY . .
 
-RUN adduser --disabled-password myuser
-USER myuser
+RUN useradd −u 8877 nonroot
+USER nonroot
 
 # run entrypoint.sh
 ENTRYPOINT ["/usr/src/app/entrypoint.sh"]
