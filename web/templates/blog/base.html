@@ -15,12 +15,13 @@
 
 {% block script %}
 
-{% compress js %}
-<script src="https://d3js.org/d3.v6.js"></script>
-
 {% if object_list.exists %}
 <script src="{% static "blog/js/graph.js" %}"></script>
+<script type="text/javascript">plot_graph('{{ object_list | post_to_js | safe }}')</script>
 {% endif %}
+
+{% compress js %}
+<script src="https://d3js.org/d3.v6.js"></script>
 
 {% if post %}
 <script src="{% static "blog/js/clipboard.min.js" %}"></script>
@@ -30,11 +31,6 @@
 {% if post.javascript %}
     <script type="text/javascript">{{ post.javascript | safe }}</script>
 {% endif %}
-
 {% endcompress %}
-
-{% if object_list.exists %}
-<script type="text/javascript">plot_graph('{{ object_list | post_to_js | safe }}')</script>
-{% endif %}
 
 {% endblock %}
