@@ -4,7 +4,7 @@ upstream api {
 
 server {
     server_name www.rattletat.com;
-    return 301 $scheme://rattletat.com$request_uri
+    return 301 $scheme://rattletat.com$request_uri;
 }
 
 server {
