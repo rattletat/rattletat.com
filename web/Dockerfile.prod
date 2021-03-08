@@ -1,10 +1,6 @@
 # pull official base image
 FROM python:3.8.3-buster
 
-# Non-root user
-RUN groupadd -r app
-RUN useradd -r -g app -d /home/app -s /sbin/nologin -c "Docker image user" app
-
 # set work directory
 ENV HOME=/home/app
 ENV APP_HOME=/home/app
@@ -25,10 +21,15 @@ COPY poetry.lock .
 COPY pyproject.toml .
 RUN poetry install --no-interaction --no-ansi
 
-COPY --chown=app:app ./entrypoint.sh $APP_HOME
-COPY --chown=app:app . $APP_HOME
+# Non-root user
+RUN groupadd -r app
+RUN useradd -r -g app -d /home/app -s /sbin/nologin -c "Docker image user" app
 
 USER app
+
+# copy files
+COPY --chown=app:app . $APP_HOME
+
 
 RUN python manage.py collectstatic --noinput
 RUN python manage.py compress
