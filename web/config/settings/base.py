@@ -26,7 +26,7 @@ DEBUG = env.bool("DJANGO_DEBUG", False)
 TIME_ZONE = "UTC"
 LANGUAGE_CODE = "en"
 SITE_ID = env("DJANGO_SITE_ID", default=1)
-USE_I18N = True
+USE_I18N = False
 USE_L10N = True
 USE_TZ = True
 # LOCALE_PATHS = [str(ROOT_DIR / "locale")]
@@ -207,8 +207,7 @@ EMAIL_TIMEOUT = 5
 # -------------------------------------------------------------------
 
 ADMIN_URL = "admin/"
-ADMINS = [("""Michael Brauweiler""", "michael.brauweiler@posteo.de")]
-
+ADMINS = []
 MANAGERS = ADMINS
 
 # LOGGING
