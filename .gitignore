@@ -108,3 +108,4 @@ media/
 *.pid
 
 mediafiles
+staticfiles
