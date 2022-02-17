@@ -20,7 +20,7 @@
     font-display: auto;
     src: url("/assets/fonts/eb-garamond-v9-latin-regular.eot"); /* IE9 Compat Modes */
     src: local("EB Garamond Regular"), local("EBGaramond-Regular"),
-        /* IE6-IE8 */ 
+        /* IE6-IE8 */
         url("../fonts/eb-garamond-v9-latin-regular.eot?#iefix") format("embedded-opentype"),
         /* Super Modern Browsers */
         url("../fonts/eb-garamond-v9-latin-regular.woff2") format("woff2"),

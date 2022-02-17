@@ -11,7 +11,7 @@ urlpatterns = [
     path("", startpage_views.view_startpage, name="startpage"),
     path("projects/", include(projects_urls, namespace="projects")),
     path("blog/", include(blog_urls, namespace="blog")),
-    path("contact/", flat_views.flatpage, {"url": "/contact/"}, name="contact"),
+    path("about/", flat_views.flatpage, {"url": "/about/"}, name="about"),
     path("privacy/", flat_views.flatpage, {"url": "/privacy/"}, name="privacy"),
     path(settings.ADMIN_URL, admin.site.urls),
 ]
