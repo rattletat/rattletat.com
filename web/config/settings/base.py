@@ -201,12 +201,18 @@ EMAIL_BACKEND = env(
     default="django.core.mail.backends.smtp.EmailBackend"
     # "DJANGO_EMAIL_BACKEND", default='django.core.mail.backends.console.EmailBackend'
 )
+EMAIL_HOST = env("DJANGO_EMAIL_HOST", default="")
+EMAIL_HOST_USER = env("DJANGO_EMAIL_ADDRESS", default="")
+EMAIL_HOST_PASSWORD = env("DJANGO_EMAIL_PASSWORD", default="")
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
 EMAIL_TIMEOUT = 5
+
 
 # ADMIN
 # -------------------------------------------------------------------
 
-ADMIN_URL = "admin/"
+ADMIN_URL = env("DJANGO_ADMIN_URL", "admin/")
 ADMINS = []
 MANAGERS = ADMINS
 

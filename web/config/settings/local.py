@@ -6,7 +6,6 @@ from .base import env
 DEBUG = True
 SECRET_KEY = env("DJANGO_SECRET_KEY", default="unsecure-dev-key")
 ALLOWED_HOSTS = ["localhost", "0.0.0.0", "127.0.0.1"]
-ADMIN_URL = "admin/"
 
 # CACHES
 # -------------------------------------------------------------------
@@ -17,18 +16,6 @@ CACHES = {
         "LOCATION": "",
     }
 }
-
-# EMAIL
-# -------------------------------------------------------------------
-
-EMAIL_BACKEND = env(
-    "DJANGO_EMAIL_BACKEND", default="django.core.mail.backends.console.EmailBackend"
-)
-EMAIL_HOST = "posteo.de"
-EMAIL_HOST_USER = "michael.brauweiler@posteo.net"
-EMAIL_HOST_PASSWORD = env("DJANGO_EMAIL_PASSWORD", default="")
-EMAIL_PORT = 587
-EMAIL_USE_TLS = True
 
 # WhiteNoise
 # -------------------------------------------------------------------
