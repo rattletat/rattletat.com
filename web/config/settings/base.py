@@ -212,7 +212,7 @@ EMAIL_TIMEOUT = 5
 # ADMIN
 # -------------------------------------------------------------------
 
-ADMIN_URL = env("DJANGO_ADMIN_URL", "admin/")
+ADMIN_URL = env("DJANGO_ADMIN_URL", default="admin/")
 ADMINS = []
 MANAGERS = ADMINS
 
