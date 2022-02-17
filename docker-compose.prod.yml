@@ -2,18 +2,18 @@ version: '3.7'
 
 services:
   app-web:
+    env_file:
+      - .env/production.env
     container_name: rattletat-web
     build:
       context: ./web
       dockerfile: Dockerfile.prod
     command: gunicorn --bind 0.0.0.0:8000 --workers 3 config.wsgi:application
     volumes:
-      - static_volume:/home/app/staticfiles
-      - media_volume:/home/app/mediafiles
+        - ${MOUNTPOINT_STATICFILES}:/home/app/staticfiles:rw
+        - ${MOUNTPOINT_MEDIAFILES}:/home/app/mediafiles:rw
     expose:
       - 8000
-    env_file:
-      - ./.env/production.env
     depends_on:
       - app-db
   app-db:
@@ -21,10 +21,6 @@ services:
     image: postgres:12.0-alpine
     volumes:
       - postgres_data:/var/lib/postgresql/data/
-    env_file:
-      - ./.env/production.env
 
 volumes:
   postgres_data:
-  static_volume:
-  media_volume:
