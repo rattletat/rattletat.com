@@ -2,7 +2,7 @@ version: '3.7'
 
 services:
   app-web:
-    container_name: app-web
+    container_name: rattletat-web
     build:
       context: ./web
       dockerfile: Dockerfile.prod
@@ -17,26 +17,12 @@ services:
     depends_on:
       - app-db
   app-db:
-    container_name: app-db
+    container_name: rattletat-db
     image: postgres:12.0-alpine
     volumes:
       - postgres_data:/var/lib/postgresql/data/
     env_file:
       - ./.env/production.env
-  app-nginx:
-    container_name: app-nginx
-    image: nginx:1.19.0
-    volumes:
-      - static_volume:/var/www/staticfiles
-      - media_volume:/var/www/mediafiles
-      - ./nginx:/etc/nginx/templates
-      - /etc/letsencrypt:/etc/letsencrypt
-      - /var/lib/letsencrypt:/var/lib/letsencrypt
-    ports:
-      - 80:80
-      - 443:443
-    depends_on:
-      - app-web
 
 volumes:
   postgres_data:
