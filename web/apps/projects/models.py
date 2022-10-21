@@ -31,7 +31,7 @@ class Project(TimeStampedModel):
 class Component(models.Model):
     project = models.ForeignKey(Project, models.CASCADE)
     position = models.PositiveSmallIntegerField(
-        default=0, editable=False, db_index=True
+        default=0, editable=True, db_index=True
     )
     post = models.ForeignKey(Post, models.SET_NULL, null=True, blank=True)
 
