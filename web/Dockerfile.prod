@@ -1,5 +1,5 @@
 # pull official base image
-FROM python:3.8.3-buster
+FROM python:3.8-buster
 
 # set environment variables
 ENV PYTHONDONTWRITEBYTECODE 1
@@ -28,7 +28,7 @@ RUN apt-get update \
 # install dependencies
 RUN pip install --upgrade pip
 RUN pip install "poetry==$POETRY_VERSION"
-COPY poetry.lock .
+# COPY poetry.lock .
 COPY pyproject.toml .
 RUN poetry install --no-interaction --no-ansi
 

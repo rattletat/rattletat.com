@@ -72,6 +72,7 @@ THIRD_PARTY_APPS = [
     "compressor",
     "django.contrib.admin",
     "adminsortable2",
+    "polymorphic",
 ]
 
 LOCAL_APPS = [
@@ -106,9 +107,7 @@ PASSWORD_HASHERS = [
 ]
 
 AUTH_PASSWORD_VALIDATORS = [
-    {
-        "NAME": "django.contrib.auth.password_validation.UserAttributeSimilarityValidator"
-    },
+    {"NAME": "django.contrib.auth.password_validation.UserAttributeSimilarityValidator"},
     {"NAME": "django.contrib.auth.password_validation.MinimumLengthValidator"},
     {"NAME": "django.contrib.auth.password_validation.CommonPasswordValidator"},
     {"NAME": "django.contrib.auth.password_validation.NumericPasswordValidator"},
@@ -243,6 +242,9 @@ LOGGING = {
 from apps.blog.utils.markdown_prism import PrismCodeExtension
 from markdown_checklist.extension import ChecklistExtension
 from markdown_katex.extension import KatexExtension
+from pymdownx.details import DetailsExtension
+from pymdownx.extra import ExtraExtension
+from pymdownx.tasklist import TasklistExtension
 
 MARKDOWNIFY = {
     "default": {
@@ -250,6 +252,9 @@ MARKDOWNIFY = {
             PrismCodeExtension(),
             ChecklistExtension(),
             KatexExtension(),
+            ExtraExtension(),
+            DetailsExtension(),
+            TasklistExtension(),
         ],
         "STRIP": False,
         "BLEACH": False,

@@ -1,17 +1,18 @@
 import markdown
+from markdown.preprocessors import Preprocessor
 import re
 
 
 class PrismCodeExtension(markdown.extensions.Extension):
-    def extendMarkdown(self, md, md_globals):
+    def extendMarkdown(self, md):
         md.registerExtension(self)
 
-        md.preprocessors.add(
-            "prism_code_block", PrismBlockPreprocessor(md), ">normalize_whitespace"
-        )
+        # md.preprocessors.register(
+        #     "prism_code_block", PrismBlockPreprocessor(md), ">normalize_whitespace"
+        # )
 
 
-class PrismBlockPreprocessor(markdown.preprocessors.Preprocessor):
+class PrismBlockPreprocessor(Preprocessor):
     PRISM_BLOCK_RE = re.compile(
         r"(?P<fence>^(?:~{3,}|`{3,}))[ ]*(\{?\.?(?P<lang>[a-zA-Z0-9_+-]*)\}?)?[ ]*\n(?P<code>.*?)(?<=\n)(?P=fence)[ ]*$",
         re.MULTILINE | re.DOTALL,
@@ -32,7 +33,7 @@ class PrismBlockPreprocessor(markdown.preprocessors.Preprocessor):
                     lang = self.LANG_TAG.format(m.group("lang"))
 
                 block = self.BLOCK_WRAP.format(lang, self._escape(m.group("code")))
-                placeholder = self.markdown.htmlStash.store(block)
+                placeholder = self.md.htmlStash.store(block)
                 text = "%s\n%s\n%s" % (
                     text[: m.start()],
                     placeholder,
@@ -48,7 +49,7 @@ class PrismBlockPreprocessor(markdown.preprocessors.Preprocessor):
             if m:
                 content = m.group("code")
                 code = self.CODE_WRAP.format(content)
-                placeholder = self.markdown.htmlStash.store(code)
+                placeholder = self.md.htmlStash.store(code)
                 text = "{0}\n{1}\n{2}".format(
                     text[: m.start()], placeholder, text[m.end() :]
                 )
@@ -57,12 +58,12 @@ class PrismBlockPreprocessor(markdown.preprocessors.Preprocessor):
         return text
 
     def run(self, lines):
-        """ Match and store Fenced Code Blocks in the HtmlStash. """
+        """Match and store Fenced Code Blocks in the HtmlStash."""
         text = self.code_replace(self.block_replace("\n".join(lines)))
         return text.split("\n")
 
     def _escape(self, txt):
-        """ basic html escaping """
+        """basic html escaping"""
         txt = txt.replace("&", "&amp;")
         txt = txt.replace("<", "&lt;")
         txt = txt.replace(">", "&gt;")

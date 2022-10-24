@@ -1,0 +1,165 @@
+details {
+  padding: 15px;
+  margin-bottom: 20px;
+  border: 1px solid transparent;
+  /* border-radius: 4px; */
+}
+
+/* details h4 { */
+/*   margin-top: 0; */
+/*   color: inherit; */
+/* } */
+
+/* .alert .alert-link { */
+/*   font-weight: bold; */
+/* } */
+
+details > p,
+details > ul {
+  margin-bottom: 0;
+}
+
+details > p + p {
+  margin-top: 5px;
+}
+
+details > details {
+  margin-bottom: 0;
+}
+
+[data-theme="dark"] details {
+  background-color: black !important;
+  border-width: 1px;
+  border-style: dashed dashed;
+}
+/* .alert-dismissable, */
+/* .alert-dismissible { */
+/*   padding-right: 35px; */
+/* } */
+
+/* .alert-dismissable .close, */
+/* .alert-dismissible .close { */
+/*   position: relative; */
+/*   top: -2px; */
+/*   right: -21px; */
+/*   color: inherit; */
+/* } */
+
+details.success {
+  background-color: #dff0d8;
+  border-color: #d6e9c6;
+}
+
+details.success > summary {
+  color: #3c763d;
+}
+
+[data-theme="dark"] details.success > summary {
+  color: #a6fd29;
+}
+
+/* .alert-success hr { */
+/*   border-top-color: #c9e2b3; */
+/* } */
+
+/* .alert-success .alert-link { */
+/*   color: #2b542c; */
+/* } */
+
+details.note {
+  background-color: #d9edf7;
+  border-color: #bce8f1;
+}
+
+details.note > summary {
+  color: #31708f;
+}
+
+[data-theme="dark"] details.note > summary {
+  color: #55ffe1;
+}
+
+/* .alert-info hr { */
+/*   border-top-color: #a6e1ec; */
+/* } */
+
+/* .alert-info .alert-link { */
+/*   color: #245269; */
+/* } */
+
+details.warning {
+  background-color: #fcf8e3;
+  border-color: #faebcc;
+}
+details.warning > summary {
+  color: #8a6d3b;
+}
+
+[data-theme="dark"] details.warning > summary {
+  color: #ffe700;
+}
+
+/* .alert-warning hr { */
+/*   border-top-color: #f7e1b5; */
+/* } */
+
+/* .alert-warning .alert-link { */
+/*   color: #66512c; */
+/* } */
+
+details.danger {
+  background-color: #f2dede;
+  border-color: #ebccd1;
+}
+details.danger > summary {
+  color: #a94442;
+}
+
+[data-theme="dark"] details.danger > summary {
+  color: #ff3b94;
+}
+
+/* .alert-danger hr { */
+/*   border-top-color: #e4b9c0; */
+/* } */
+
+/* .alert-danger .alert-link { */
+/*   color: #843534; */
+/* } */
+
+details {
+  display: block;
+}
+
+details[open] > summary::before {
+  content: "\25BC";
+}
+
+details summary {
+  display: block;
+  cursor: pointer;
+}
+
+details summary:focus {
+  outline: none;
+}
+
+details summary::before {
+  content: "\25B6";
+  padding-right: 0.5em;
+}
+
+details summary::-webkit-details-marker {
+  display: none;
+}
+
+/* /1* Attach the "no-details" class to details tags */
+/*    in browsers that do not support them to get */
+/*    open/show functionality. *1/ */
+details.no-details:not([open]) > * {
+  display: none;
+}
+
+details.no-details:not([open]) summary {
+  display: block;
+}

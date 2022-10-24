@@ -1,5 +1,5 @@
 # pull official base image
-FROM python:3.8.3-buster
+FROM python:3.8-buster
 
 # set work directory
 WORKDIR /usr/src/app
@@ -12,14 +12,13 @@ ENV POETRY_VERSION 1.0.10
 ENV POETRY_VIRTUALENVS_CREATE false
 
 # install psycopg2 dependencies
-RUN apt-get update \
-  && apt-get -y install gcc postgresql netcat \
-  && apt-get clean
+RUN apt-get --assume-yes update \
+  && apt-get --assume-yes install gcc postgresql netcat \
+  && apt-get --assume-yes clean
 
 # install dependencies
 RUN pip install --upgrade pip
 RUN pip install "poetry==$POETRY_VERSION"
-COPY poetry.lock .
 COPY pyproject.toml .
 RUN poetry install --no-interaction --no-ansi
 
