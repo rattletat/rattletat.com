@@ -5,7 +5,7 @@
     <img class="card-img-top" src="{{ project.image.url }}">
     <div class="card-body d-flex flex-column">
         <p class="card-text">{{ project.description }}</p>
-        <a href="{% url 'projects:detail' project.pk %}"><button type="button" class="mt-auto btn btn-outline-secondary">Read More</button></a>
+        <a href="{% url 'projects:detail' project.slug %}"><button type="button" class="mt-auto btn btn-outline-secondary">Read More</button></a>
     </div>
     <div class="card-footer">
         <small class="text-muted">Created {{ project.created | naturaltime }}</small>

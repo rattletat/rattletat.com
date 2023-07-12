@@ -7,9 +7,7 @@ class PrismCodeExtension(markdown.extensions.Extension):
     def extendMarkdown(self, md):
         md.registerExtension(self)
 
-        # md.preprocessors.register(
-        #     "prism_code_block", PrismBlockPreprocessor(md), ">normalize_whitespace"
-        # )
+        md.preprocessors.register(PrismBlockPreprocessor(md), "prism_code_block", 180)
 
 
 class PrismBlockPreprocessor(Preprocessor):

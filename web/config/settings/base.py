@@ -240,19 +240,16 @@ LOGGING = {
 # MARKDOWNIFY
 # -------------------------------------------------------------------
 from apps.blog.utils.markdown_prism import PrismCodeExtension
-from markdown_checklist.extension import ChecklistExtension
 from markdown_katex.extension import KatexExtension
 from pymdownx.details import DetailsExtension
-from pymdownx.extra import ExtraExtension
 from pymdownx.tasklist import TasklistExtension
 
 MARKDOWNIFY = {
     "default": {
         "MARKDOWN_EXTENSIONS": [
-            PrismCodeExtension(),
-            ChecklistExtension(),
+            "extra",
+            # PrismCodeExtension(),
             KatexExtension(),
-            ExtraExtension(),
             DetailsExtension(),
             TasklistExtension(),
         ],

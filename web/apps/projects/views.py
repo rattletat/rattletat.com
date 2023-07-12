@@ -1,14 +1,20 @@
-from django.shortcuts import render
 from .models import Project
+from django.views.generic import ListView, DetailView
 
 
-def index(request):
-    projects = Project.objects
-    context = {"projects": projects}
-    return render(request, "projects/index.html", context)
+class IndexView(ListView):
+    template_name = "projects/index.html"
+    model = Project
+    ordering = ["-created"]
+
+    def get_queryset(self):
+        return Project.objects.all()
 
 
-def detail(request, pk):
-    project = Project.objects.get(pk=pk)
-    context = {"project": project}
-    return render(request, "projects/detail.html", context)
+class ProjectView(DetailView):
+    model = Project
+    template_name = "projects/detail.html"
+
+    def get_object(self):
+        project_slug = self.kwargs["project_slug"]
+        return Project.objects.get(slug=project_slug)

@@ -2,6 +2,7 @@ import os
 
 from django.db import models
 from django.shortcuts import reverse
+from autoslug import AutoSlugField
 from django.utils.text import slugify
 from model_utils.models import TimeStampedModel
 
@@ -10,6 +11,7 @@ from apps.blog.models import Post
 
 class Project(TimeStampedModel):
     title = models.CharField(max_length=100)
+    slug = AutoSlugField(max_length=500, populate_from="title")
     description = models.TextField()
 
     def _image_path(self, filename):
@@ -30,9 +32,7 @@ class Project(TimeStampedModel):
 
 class Component(models.Model):
     project = models.ForeignKey(Project, models.CASCADE)
-    position = models.PositiveSmallIntegerField(
-        default=0, editable=True, db_index=True
-    )
+    position = models.PositiveSmallIntegerField(default=0, editable=True, db_index=True)
     post = models.ForeignKey(Post, models.SET_NULL, null=True, blank=True)
 
     title = models.CharField(max_length=100, null=True, blank=True)
