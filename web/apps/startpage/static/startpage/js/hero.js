@@ -143,6 +143,11 @@ function makeDots() {
   const initialBlueDotSpeed = 3;
   const wallRepulsionDistance = 100;
   const escapeThreshold = 100;
+  let maxDistance = Math.sqrt(width * width + height * height);
+  let colorScale = d3
+    .scaleLinear()
+    .domain([0, maxDistance])
+    .range(["#748aa6", "white"]);
 
   window.onresize = function () {
     width = window.innerWidth;
@@ -188,7 +193,10 @@ function makeDots() {
       .attr("r", (d) => d.r)
       .attr("cx", (d) => d.x)
       .attr("cy", (d) => d.y)
-      .attr("fill", "white");
+      .attr("fill", (d) => {
+        let distance = Math.hypot(redDot.x - d.x, redDot.y - d.y);
+        return colorScale(distance);
+      });
     blue.exit().remove();
   }
 
@@ -285,6 +293,7 @@ function makeDots() {
     blueDots = blueDots.filter((dot) => {
       if (Math.hypot(redDot.x - dot.x, redDot.y - dot.y) < redDot.r + dot.r) {
         redDot.r += dot.r * growthRate; // The red dot grows
+        redDot.speed = redDot.speed * 0.99; // The red dot grows
         return false; // Remove the blue dot
       } else {
         return true;
