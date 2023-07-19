@@ -16,4 +16,5 @@ class PostAdmin(admin.ModelAdmin):
     inlines = (PostComponentInline,)
 
 
+admin.site.register(PostComponent)
 admin.site.register(Tag)

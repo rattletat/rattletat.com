@@ -24,6 +24,7 @@ class Post(TimeStampedModel):
     tags = models.ManyToManyField(Tag, null=True, blank=True)
 
     description = models.TextField()
+    fediverse_post = models.CharField(max_length=250, null=True, blank=True)
 
     def _image_path(self, filename):
         return os.path.join(self.root_path, "images", filename)

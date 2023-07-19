@@ -13,7 +13,7 @@ ENV POETRY_VIRTUALENVS_CREATE false
 
 # install psycopg2 dependencies
 RUN apt-get --assume-yes update \
-  && apt-get --assume-yes install gcc postgresql netcat \
+  && apt-get --assume-yes install gcc \
   && apt-get --assume-yes clean
 
 # install dependencies

@@ -1,6 +1,4 @@
-from django.utils.safestring import mark_safe
 from django.template import Library
-from django.utils.text import slugify
 
 import json
 
