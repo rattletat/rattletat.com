@@ -1,0 +1,17 @@
+{% extends "events/base.html" %}
+
+{% block page_hero %}
+<svg id="map" style="z-index:1;"></svg>
+<!-- <canvas id="map"></canvas> -->
+{% endblock %}
+
+{% block page_content %}
+<div class="col-lg-8 col-md-10 mx-auto">
+
+    {% for event in object_list.all|slice:"3" %}
+    {% include "events/title.html" %}
+    <br>
+    <br>
+    {% endfor %}
+</div>
+{% endblock %}

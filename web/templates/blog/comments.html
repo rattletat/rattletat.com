@@ -1,11 +1,13 @@
-{% if post.comments.exists %}
-<h3>Comments:</h3>
-{% for comment in post.comments.all %}
-<p>
-  On {{comment.created.date }}&nbsp;
-  <b class="author">{{ comment.author }}</b> wrote:
+<br/>
+<h1>Comments:</h1>
+
+<noscript>
+  <div id="error">
+    Please enable JavaScript to view the comments powered by the Fediverse.
+  </div>
+</noscript>
+
+<p>You can use your Fediverse account to reply to this <a class="link"
+    href="{{ post.fediverse_post }}">post</a>.
 </p>
-<p>{{ comment.text }}</p>
-<hr>
-{% endfor %}
-{% endif %}
+<p id="mastodon-comments-list"></p>

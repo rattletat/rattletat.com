@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% load static %}
+{% load compress %}
+{% load event_to_js %}
+
+{% block style %}
+{% compress css %}
+<link rel="stylesheet" type="text/css" href="{% static "events/css/map.css" %}">
+{% endcompress %}
+{% endblock %}
+
+{% block script %}
+<script src="https://d3js.org/d3.v3.js"></script>
+<script src="https://d3js.org/topojson.v1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/d3-array@3"></script>
+<script src="https://cdn.jsdelivr.net/npm/d3-geo@3"></script>
+
+<script src="{% static "events/js/map2.js" %}"></script>
+<!-- <script type="text/javascript">plot_map('{{ object_list | event_to_js | safe }}')</script> -->
+
+{% endblock %}

@@ -6,6 +6,7 @@
 {% block style %}
 {% compress css %}
 <link rel="stylesheet" type="text/css" href="{% static "blog/css/base.css" %}">
+<link rel="stylesheet" type="text/css" href="{% static "blog/css/comments.css" %}">
 <link rel="stylesheet" type="text/css" href="{% static "blog/css/colors.css" %}">
 {% endcompress %}
 {% compress css inline %}
@@ -24,6 +25,11 @@
 {% if post %}
 <script src="{% static "blog/js/clipboard.min.js" %}"></script>
 <script src="{% static "blog/js/prism.js" %}"></script>
+{% if post.fediverse_post %}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/2.4.1/purify.min.js" integrity="sha512-uHOKtSfJWScGmyyFr2O2+efpDx2nhwHU2v7MVeptzZoiC7bdF6Ny/CmZhN2AwIK1oCFiVQQ5DA/L9FSzyPNu6Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="{% static "blog/js/fedicomments.js" %}"></script>
+    <script type="text/javascript" >var { host, user, id } = splitURL("{{ post.fediverse_post }}")</script>
+{% endif %}
 {% endif %}
 
 {% if post.javascript %}

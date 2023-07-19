@@ -1,0 +1,19 @@
+<div class="container">
+  <div class="row">
+    <div class="col col-4 text-center">
+      {% if event.previous %}
+      <a href="{{ event.previous.get_absolute_url }}" title="{{ event.previous.title }}" class="arrow-link">←</a>
+      {% endif %}
+    </div>
+
+    <div class="col col-4 text-center">
+      <a href="#" title="top of page" class="arrow-link">↑</a>
+    </div>
+
+    <div class="col col-4 text-center">
+      {% if event.next %}
+      <a href="{{ event.next.get_absolute_url }}" title="{{ event.next.title }}" class="arrow-link">→</a>
+      {% endif %}
+    </div>
+  </div>
+</div>
