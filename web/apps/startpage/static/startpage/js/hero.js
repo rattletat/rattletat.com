@@ -188,7 +188,7 @@ function makeDots() {
       .attr("r", (d) => d.r)
       .attr("cx", (d) => d.x)
       .attr("cy", (d) => d.y)
-      .attr("fill", "#2166ac");
+      .attr("fill", "#d0dfe6");
     blue.exit().remove();
   }
 
