@@ -147,7 +147,7 @@ function makeDots() {
   let colorScale = d3
     .scaleLinear()
     .domain([0, maxDistance])
-    .range(["#748aa6", "white"]);
+    .range(["white", "#748aa6"]);
 
   window.onresize = function () {
     width = window.innerWidth;
@@ -293,7 +293,7 @@ function makeDots() {
     blueDots = blueDots.filter((dot) => {
       if (Math.hypot(redDot.x - dot.x, redDot.y - dot.y) < redDot.r + dot.r) {
         redDot.r += dot.r * growthRate; // The red dot grows
-        redDot.speed = redDot.speed * 0.99; // The red dot grows
+        redDot.speed = redDot.speed * 0.999; // The red dot grows
         return false; // Remove the blue dot
       } else {
         return true;
