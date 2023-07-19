@@ -176,7 +176,7 @@ function makeDots() {
       .attr("r", (d) => d.r)
       .attr("cx", (d) => d.x)
       .attr("cy", (d) => d.y)
-      .attr("fill", "#ff410d");
+      .attr("fill", "#b2182b");
 
     // Update blue dots
     let blue = svg.selectAll(".blue-dot").data(blueDots);
@@ -188,7 +188,7 @@ function makeDots() {
       .attr("r", (d) => d.r)
       .attr("cx", (d) => d.x)
       .attr("cy", (d) => d.y)
-      .attr("fill", "#7CFFFF");
+      .attr("fill", "#2166ac");
     blue.exit().remove();
   }
 
