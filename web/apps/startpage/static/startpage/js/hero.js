@@ -143,7 +143,7 @@ function makeDots() {
   const initialBlueDotSpeed = 3;
   const wallRepulsionDistance = 100;
   const escapeThreshold = 100;
-  let maxDistance = Math.sqrt(width * width + height * height);
+  let maxDistance = Math.sqrt(width * width + height * height) * 0.75;
   let colorScale = d3
     .scalePow()
     .domain([0, maxDistance])
