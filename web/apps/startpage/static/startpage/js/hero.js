@@ -138,7 +138,7 @@ function makeDots() {
   // Sizing
   var width = window.innerWidth;
   var height = window.innerHeight * 0.975;
-  const numberBlueDots = Math.round((width * height) / 500);
+  const numberBlueDots = Math.round((width * height) / 1000);
   const growthRate = 0.01;
   const initialBlueDotSpeed = 3;
   const wallRepulsionDistance = 100;
@@ -164,7 +164,7 @@ function makeDots() {
     return {
       x: Math.random() * width,
       y: Math.random() * height,
-      r: 10,
+      r: 15,
       speed: initialBlueDotSpeed,
     };
   });
