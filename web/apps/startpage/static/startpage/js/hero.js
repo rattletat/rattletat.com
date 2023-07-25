@@ -143,11 +143,7 @@ function makeDots() {
   const initialBlueDotSpeed = 3;
   const wallRepulsionDistance = 100;
   const escapeThreshold = 100;
-  let maxDistance = Math.sqrt(width * width + height * height) * 0.25;
-  let colorScale = d3
-    .scalePow()
-    .domain([0, maxDistance])
-    .range(["white", "black"]);
+  let maxDistance = Math.sqrt(width * width + height * height) * 0.5;
 
   window.onresize = function () {
     width = window.innerWidth;
@@ -195,6 +191,10 @@ function makeDots() {
       .attr("cy", (d) => d.y)
       .attr("fill", (d) => {
         let distance = Math.hypot(redDot.x - d.x, redDot.y - d.y);
+        let colorScale = d3
+          .scalePow()
+          .domain([redDot.r, maxDistance - redDot.r])
+          .range(["white", "black"]);
         return colorScale(distance);
       });
     blue.exit().remove();
