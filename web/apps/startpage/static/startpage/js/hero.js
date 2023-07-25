@@ -192,7 +192,7 @@ function makeDots() {
       .attr("fill", (d) => {
         let distance = Math.hypot(redDot.x - d.x, redDot.y - d.y);
         let colorScale = d3
-          .scalePow()
+          .scaleSqrt()
           .domain([redDot.r, maxDistance - redDot.r])
           .range(["white", "black"]);
         return colorScale(distance);
