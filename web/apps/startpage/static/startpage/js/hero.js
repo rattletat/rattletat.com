@@ -143,7 +143,11 @@ function makeDots() {
   const initialBlueDotSpeed = 3;
   const wallRepulsionDistance = 100;
   const escapeThreshold = 100;
-  let maxDistance = Math.sqrt(width * width + height * height) * 0.9;
+  const maxDistance = Math.sqrt(width * width + height * height) * 0.9;
+  const colorScale = d3
+    .scaleSqrt()
+    .domain([redDot.r, maxDistance - redDot.r])
+    .range(["white", "black"]);
 
   window.onresize = function () {
     width = window.innerWidth;
@@ -164,6 +168,23 @@ function makeDots() {
       speed: initialBlueDotSpeed,
     };
   });
+
+  let blue = svg.selectAll(".blue-dot").data(blueDots);
+  blue
+    .enter()
+    .append("circle")
+    .attr("class", "blue-dot")
+    .attr("r", (d) => 0)
+    .attr("cx", (d) => d.x)
+    .attr("cy", (d) => d.y)
+    .attr("fill", (d) => {
+      let distance = Math.hypot(redDot.x - d.x, redDot.y - d.y);
+      let colorScale = d3
+        .scaleSqrt()
+        .domain([redDot.r, maxDistance - redDot.r])
+        .range(["white", "black"]);
+      return colorScale(distance);
+    });
 
   // Redraw function
   function redraw() {
@@ -191,10 +212,6 @@ function makeDots() {
       .attr("cy", (d) => d.y)
       .attr("fill", (d) => {
         let distance = Math.hypot(redDot.x - d.x, redDot.y - d.y);
-        let colorScale = d3
-          .scaleSqrt()
-          .domain([redDot.r, maxDistance - redDot.r])
-          .range(["white", "black"]);
         return colorScale(distance);
       });
     blue.exit().remove();
