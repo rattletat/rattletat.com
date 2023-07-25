@@ -143,7 +143,7 @@ function makeDots() {
   const initialBlueDotSpeed = 3;
   const wallRepulsionDistance = 100;
   const escapeThreshold = 100;
-  const maxDistance = Math.sqrt(width * width + height * height) * 0.9;
+  const maxDistance = Math.sqrt(width * width + height * height) * 0.8;
 
   window.onresize = function () {
     width = window.innerWidth;
