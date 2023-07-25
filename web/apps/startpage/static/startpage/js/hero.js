@@ -147,7 +147,7 @@ function makeDots() {
   let colorScale = d3
     .scaleLinear()
     .domain([0, maxDistance])
-    .range(["white", "#748aa6"]);
+    .range(["white", "black"]);
 
   window.onresize = function () {
     width = window.innerWidth;
