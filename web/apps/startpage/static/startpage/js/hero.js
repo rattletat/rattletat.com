@@ -192,10 +192,10 @@ function makeDots() {
       .attr("fill", (d) => {
         let distance = Math.hypot(redDot.x - d.x, redDot.y - d.y);
         let colorScale = d3
-          .scaleSqrt()
+          .scalePow()
           .domain([redDot.r, maxDistance - redDot.r])
           .range(["white", "black"]);
-        return colorScale(distance);
+        return colorScale.invert(distance);
       });
     blue.exit().remove();
   }
