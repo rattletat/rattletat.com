@@ -145,7 +145,7 @@ function makeDots() {
   const escapeThreshold = 100;
   let maxDistance = Math.sqrt(width * width + height * height);
   let colorScale = d3
-    .scaleSqrt()
+    .scalePow()
     .domain([0, maxDistance])
     .range(["white", "black"]);
 
