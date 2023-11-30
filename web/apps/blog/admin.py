@@ -5,7 +5,7 @@ from .models import Post, PostComponent, Tag
 
 
 class PostComponentInline(
-    SortableInlineAdminMixin, admin.StackedInline
+    SortableInlineAdminMixin, admin.TabularInline
 ):  # or admin.StackedInline
     model = PostComponent
     extra = 1
