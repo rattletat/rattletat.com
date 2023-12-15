@@ -2,25 +2,31 @@ version: '3.7'
 
 services:
   app-web:
-    container_name: app-web
-    build: ./web
-    command: python manage.py runserver 0.0.0.0:8000
+    container_name: rattletat-web
+    env_file:
+      - .env/production.env
+    container_name: rattletat-web
+    build:
+      context: ./web
+      dockerfile: Dockerfile.prod
+    command: gunicorn --bind 0.0.0.0:8000 --workers 3 config.wsgi:application
     volumes:
       - ./web/:/usr/src/app/
     ports:
       - 8000:8000
-    env_file:
-      - ./.env/local.env
+    expose:
+      - 8000
     depends_on:
       - app-db
     restart: always
+    volumes:
+        - /public/rattletat/staticfiles:/home/app/staticfiles:rw
+        - /public/rattletat/mediafiles:/home/app/mediafiles:rw
   app-db:
-    container_name: app-db
+    container_name: rattletat-db
     image: postgres:12.0-alpine
     volumes:
       - postgres_data:/var/lib/postgresql/data
-    env_file:
-      - ./.env/local.env
 
 volumes:
   postgres_data:
